@@ -49,7 +49,7 @@ const Header = () => {
         { name: 'Engine Bay Detailing', href: '/services/engine-bay-detailing' },
         { name: 'Headlight Restoration', href: '/services/headlight-restoration' },
         { name: 'Paint Protection Film', href: '/services/paint-protection-film' },
-        { name: 'Mobile Detailing', href: '/services/mobile-detailing' },
+        { name: 'Car Lights Service', href: '/services/mobile-detailing' },
       ]
     },
     { name: 'Gallery', sectionId: 'gallery' },
@@ -58,8 +58,6 @@ const Header = () => {
 
   const isActive = (sectionId: string) => {
     if (location.pathname !== '/') return false;
-    
-    // Simple active state based on scroll position could be added here
     return false;
   };
 
@@ -76,13 +74,13 @@ const Header = () => {
               <div className="w-12 h-12 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
                 <img 
                   src="/lovable-uploads/ad86bc6e-f77f-4e28-a9cc-aa1f2d9a1d4d.png" 
-                  alt="CCS Car Shine Hub Logo" 
+                  alt="CSS Car Hyderabad Logo" 
                   className="w-12 h-12 object-contain"
                 />
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300">
-                  CCS Car Shine Hub
+                  CSS Car Hyderabad
                 </h1>
                 <p className="text-sm text-red-600">Professional Auto Detailing</p>
               </div>

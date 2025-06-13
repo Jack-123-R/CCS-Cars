@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -13,12 +13,12 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-full flex items-center justify-center">
                 <img 
                   src="/lovable-uploads/ad86bc6e-f77f-4e28-a9cc-aa1f2d9a1d4d.png" 
-                  alt="CCS Car Shine Hub Logo" 
+                  alt="CSS Car Hyderabad Logo" 
                   className="w-10 h-10 object-contain"
                 />
               </div>
               <div>
-                <h3 className="text-lg font-bold">CCS Car Shine Hub</h3>
+                <h3 className="text-lg font-bold">CSS Car Hyderabad</h3>
                 <p className="text-sm text-gray-400">Professional Auto Detailing</p>
               </div>
             </div>
@@ -27,14 +27,14 @@ const Footer = () => {
               Quality, precision, and customer satisfaction guaranteed.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 transition-colors">
+                <Youtube className="h-5 w-5" />
+              </a>
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
-                <Twitter className="h-5 w-5" />
+                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -60,7 +60,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/services/mobile-detailing" className="text-gray-400 hover:text-white transition-colors">
-                  Mobile Detailing
+                  Car Lights Service
                 </Link>
               </li>
               <li>
@@ -126,7 +126,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 CCS Car Shine Hub. All rights reserved.
+            © 2024 CSS Car Hyderabad. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">

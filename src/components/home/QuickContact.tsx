@@ -122,11 +122,11 @@ const QuickContact = () => {
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="interior-deep-clean">Interior Deep Clean</SelectItem>
-                  <SelectItem value="paint-correction">Paint Correction & Ceramic Coating</SelectItem>
-                  <SelectItem value="premium-wash">Premium Wash & Wax</SelectItem>
-                  <SelectItem value="mobile-detailing">Mobile Detailing</SelectItem>
-                  <SelectItem value="full-detail">Full Detail Package</SelectItem>
+                  <SelectItem value="interior-deep-clean">Interior Deep Clean - ₹2,999</SelectItem>
+                  <SelectItem value="paint-correction">Paint Correction & Ceramic Coating - ₹15,999</SelectItem>
+                  <SelectItem value="premium-wash">Premium Wash & Wax - ₹1,599</SelectItem>
+                  <SelectItem value="car-lights">Car Lights Service - ₹2,499</SelectItem>
+                  <SelectItem value="full-detail">Full Detail Package - ₹12,999</SelectItem>
                   <SelectItem value="consultation">Free Consultation</SelectItem>
                 </SelectContent>
               </Select>
