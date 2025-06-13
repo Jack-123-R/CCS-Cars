@@ -14,7 +14,7 @@ const Services = () => {
           icon: Sparkles,
           title: "Interior Deep Clean",
           description: "Comprehensive interior cleaning including steam cleaning, leather conditioning, and fabric protection.",
-          price: "Starting at $89",
+          price: "Starting at ₹7,500",
           duration: "2-3 hours",
           href: "/services/interior-deep-clean",
           image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
@@ -24,7 +24,7 @@ const Services = () => {
           icon: Shield,
           title: "Premium Interior Protection",
           description: "Advanced protection for leather, fabric, and trim with long-lasting coating applications.",
-          price: "Starting at $149",
+          price: "Starting at ₹12,500",
           duration: "2-3 hours", 
           href: "/services/premium-interior-protection",
           image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
@@ -40,7 +40,7 @@ const Services = () => {
           icon: Zap,
           title: "Premium Wash & Wax",
           description: "Hand wash, clay bar treatment, and premium wax application for brilliant shine and protection.",
-          price: "Starting at $49",
+          price: "Starting at ₹4,000",
           duration: "1-2 hours",
           href: "/services/premium-wash-wax", 
           image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=400&q=80",
@@ -50,7 +50,7 @@ const Services = () => {
           icon: Car,
           title: "Paint Correction & Ceramic Coating",
           description: "Multi-stage paint correction followed by premium ceramic coating for ultimate protection.",
-          price: "Starting at $499",
+          price: "Starting at ₹42,000",
           duration: "6-8 hours",
           href: "/services/paint-correction-ceramic",
           image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80",
@@ -66,7 +66,7 @@ const Services = () => {
           icon: Wrench,
           title: "Engine Bay Detailing",
           description: "Complete engine bay cleaning and dressing for a showroom-fresh appearance.",
-          price: "Starting at $79",
+          price: "Starting at ₹6,500",
           duration: "1-2 hours",
           href: "/services/engine-bay-detailing",
           image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80",
@@ -76,7 +76,7 @@ const Services = () => {
           icon: Eye,
           title: "Headlight Restoration",
           description: "Restore cloudy, yellowed headlights to like-new clarity and brightness.",
-          price: "Starting at $89",
+          price: "Starting at ₹7,500",
           duration: "1 hour",
           href: "/services/headlight-restoration",
           image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=400&q=80",
@@ -86,7 +86,7 @@ const Services = () => {
           icon: Droplet,
           title: "Paint Protection Film",
           description: "Invisible protection film for high-impact areas to prevent chips and scratches.",
-          price: "Starting at $299",
+          price: "Starting at ₹25,000",
           duration: "3-4 hours",
           href: "/services/paint-protection-film",
           image: "https://images.unsplash.com/photo-1555353540-38b469e74d6b?auto=format&fit=crop&w=400&q=80",
@@ -94,13 +94,13 @@ const Services = () => {
         },
         {
           icon: Smartphone,
-          title: "Mobile Detailing Service",
-          description: "Professional detailing services at your location - home, office, or anywhere convenient.",
-          price: "Starting at $79",
+          title: "Car Lights Service",
+          description: "Professional car lighting services at your location - home, office, or anywhere convenient.",
+          price: "Starting at ₹6,500",
           duration: "2-4 hours",
           href: "/services/mobile-detailing",
           image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80",
-          included: ["At your location", "Full equipment setup", "Water and power", "All service levels"]
+          included: ["At your location", "Full equipment setup", "LED upgrade", "All lighting solutions"]
         }
       ]
     }
@@ -109,19 +109,19 @@ const Services = () => {
   const packages = [
     {
       name: "Essential Care",
-      price: "$129",
+      price: "₹11,000",
       services: ["Premium Wash & Wax", "Interior Vacuum", "Tire Shine", "Window Cleaning"],
       popular: false
     },
     {
       name: "Complete Detail",
-      price: "$249", 
+      price: "₹21,000", 
       services: ["Interior Deep Clean", "Premium Wash & Wax", "Clay Bar", "Leather Conditioning"],
       popular: true
     },
     {
       name: "Ultimate Protection",
-      price: "$699",
+      price: "₹58,000",
       services: ["Paint Correction", "Ceramic Coating", "Interior Protection", "Engine Bay Detail"],
       popular: false
     }
@@ -254,7 +254,7 @@ const Services = () => {
             <Button asChild size="lg" className="bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600">
               <Link to="/contact">Free Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-50 hover:text-blue-900">
               <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
             </Button>
           </div>
