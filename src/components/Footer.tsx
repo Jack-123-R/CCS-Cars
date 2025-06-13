@@ -10,8 +10,12 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">CCS</span>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/ad86bc6e-f77f-4e28-a9cc-aa1f2d9a1d4d.png" 
+                  alt="CCS Car Shine Hub Logo" 
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-lg font-bold">CCS Car Shine Hub</h3>
@@ -23,13 +27,13 @@ const Footer = () => {
               Quality, precision, and customer satisfaction guaranteed.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -60,7 +64,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <Link to="/services" className="text-red-400 hover:text-red-300 transition-colors">
                   View All Services →
                 </Link>
               </li>
@@ -72,22 +76,23 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400" />
-                <a href="tel:555-123-7446" className="text-gray-400 hover:text-white transition-colors">
-                  (555) 123-SHINE
+                <Phone className="h-5 w-5 text-red-400" />
+                <a href="tel:7893821502" className="text-gray-400 hover:text-white transition-colors">
+                  7893821502
                 </a>
               </li>
               <li className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <a href="mailto:info@ccscarshine.com" className="text-gray-400 hover:text-white transition-colors">
-                  info@ccscarshine.com
+                <Phone className="h-5 w-5 text-red-400" />
+                <a href="tel:9866335522" className="text-gray-400 hover:text-white transition-colors">
+                  9866335522
                 </a>
               </li>
               <li className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400 mt-1" />
+                <MapPin className="h-5 w-5 text-red-400 mt-1" />
                 <div className="text-gray-400">
-                  <p>1234 Shine Street</p>
-                  <p>Metro City, ST 12345</p>
+                  <p>A57 Tarakarama Nagar</p>
+                  <p>Film Nagar, Hyderabad</p>
+                  <p>Sindh 500033</p>
                 </div>
               </li>
             </ul>
@@ -98,7 +103,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Business Hours</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
-                <Clock className="h-5 w-5 text-blue-400" />
+                <Clock className="h-5 w-5 text-red-400" />
                 <div className="text-gray-400">
                   <p className="font-medium">Monday - Friday</p>
                   <p>8:00 AM - 6:00 PM</p>
@@ -113,8 +118,8 @@ const Footer = () => {
                 <p>10:00 AM - 4:00 PM</p>
               </div>
             </div>
-            <div className="mt-4 p-3 bg-blue-900 rounded-lg">
-              <p className="text-sm text-blue-200">Service Area: 25-mile radius from Metro City</p>
+            <div className="mt-4 p-3 bg-red-900 rounded-lg">
+              <p className="text-sm text-red-200">Service Area: 25-mile radius from Hyderabad</p>
             </div>
           </div>
         </div>

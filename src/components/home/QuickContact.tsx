@@ -32,7 +32,7 @@ const QuickContact = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+    <section className="py-20 bg-gradient-to-br from-red-600 to-red-500 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-8">
@@ -40,50 +40,51 @@ const QuickContact = () => {
               <h2 className="text-4xl font-bold mb-4">
                 Ready to Transform Your Car?
               </h2>
-              <p className="text-xl text-blue-100 leading-relaxed">
+              <p className="text-xl text-red-100 leading-relaxed">
                 Get a free quote and schedule your service today. Our team is ready to make your car shine like never before.
               </p>
             </div>
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-800 p-3 rounded-full">
+                <div className="bg-red-700 p-3 rounded-full">
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Call Us Now</h3>
-                  <a href="tel:555-123-7446" className="text-blue-200 hover:text-white transition-colors">
-                    (555) 123-SHINE
+                  <a href="tel:7893821502" className="text-red-200 hover:text-white transition-colors">
+                    7893821502
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-800 p-3 rounded-full">
-                  <Mail className="h-6 w-6" />
+                <div className="bg-red-700 p-3 rounded-full">
+                  <Phone className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Email Us</h3>
-                  <a href="mailto:info@ccscarshine.com" className="text-blue-200 hover:text-white transition-colors">
-                    info@ccscarshine.com
+                  <h3 className="font-semibold">Alternative Number</h3>
+                  <a href="tel:9866335522" className="text-red-200 hover:text-white transition-colors">
+                    9866335522
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-800 p-3 rounded-full">
+                <div className="bg-red-700 p-3 rounded-full">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Visit Our Facility</h3>
-                  <p className="text-blue-200">1234 Shine Street, Metro City, ST 12345</p>
+                  <p className="text-red-200">A57 Tarakarama Nagar, Film Nagar</p>
+                  <p className="text-red-200">Hyderabad, Sindh 500033</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-blue-800 rounded-lg p-6">
+            <div className="bg-red-700 rounded-lg p-6">
               <h3 className="font-bold text-lg mb-2">Same-Day Service Available</h3>
-              <p className="text-blue-200">
+              <p className="text-red-200">
                 Need your car detailed today? Call us before 2 PM for same-day service availability.
               </p>
             </div>
@@ -137,7 +138,7 @@ const QuickContact = () => {
                 rows={4}
               />
               
-              <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600">
+              <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600">
                 Get My Free Quote
               </Button>
             </form>

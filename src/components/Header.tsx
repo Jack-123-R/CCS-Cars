@@ -73,14 +73,18 @@ const Header = () => {
             className="flex-shrink-0 group cursor-pointer"
           >
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-900 to-blue-700 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-xl">CCS</span>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                <img 
+                  src="/lovable-uploads/ad86bc6e-f77f-4e28-a9cc-aa1f2d9a1d4d.png" 
+                  alt="CCS Car Shine Hub Logo" 
+                  className="w-12 h-12 object-contain"
+                />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                <h1 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300">
                   CCS Car Shine Hub
                 </h1>
-                <p className="text-sm text-blue-600">Professional Auto Detailing</p>
+                <p className="text-sm text-red-600">Professional Auto Detailing</p>
               </div>
             </div>
           </button>
@@ -90,7 +94,7 @@ const Header = () => {
             {navigation.map((item) => (
               item.dropdown ? (
                 <DropdownMenu key={item.name}>
-                  <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105">
+                  <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-all duration-300 hover:scale-105">
                     <span>{item.name}</span>
                     <ChevronDown className="h-4 w-4" />
                   </DropdownMenuTrigger>
@@ -98,7 +102,7 @@ const Header = () => {
                     <DropdownMenuItem asChild>
                       <button
                         onClick={() => scrollToSection('services')}
-                        className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600"
                       >
                         View All Services
                       </button>
@@ -107,7 +111,7 @@ const Header = () => {
                       <DropdownMenuItem key={subItem.name} asChild>
                         <Link
                           to={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600"
                         >
                           {subItem.name}
                         </Link>
@@ -121,12 +125,12 @@ const Header = () => {
                   onClick={() => scrollToSection(item.sectionId!)}
                   className={`${
                     isActive(item.sectionId!)
-                      ? 'text-blue-600 font-semibold'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? 'text-red-600 font-semibold'
+                      : 'text-gray-700 hover:text-red-600'
                   } transition-all duration-300 hover:scale-105 relative group`}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
                 </button>
               )
             ))}
@@ -135,15 +139,15 @@ const Header = () => {
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <a 
-              href="tel:555-123-7446" 
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-all duration-300 hover:scale-105"
+              href="tel:7893821502" 
+              className="flex items-center space-x-2 text-red-600 hover:text-red-700 transition-all duration-300 hover:scale-105"
             >
               <Phone className="h-5 w-5" />
-              <span className="font-semibold">(555) 123-SHINE</span>
+              <span className="font-semibold">7893821502</span>
             </a>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 transform hover:scale-105 transition-all duration-300"
             >
               Book Now
             </Button>
@@ -164,7 +168,7 @@ const Header = () => {
                       <>
                         <button
                           onClick={() => scrollToSection('services')}
-                          className="text-left py-2 text-lg text-gray-700 hover:text-blue-600 transition-colors duration-300"
+                          className="text-left py-2 text-lg text-gray-700 hover:text-red-600 transition-colors duration-300"
                         >
                           {item.name}
                         </button>
@@ -174,7 +178,7 @@ const Header = () => {
                               key={subItem.name}
                               to={subItem.href}
                               onClick={() => setIsOpen(false)}
-                              className="block py-1 text-gray-600 hover:text-blue-600 transition-colors duration-300"
+                              className="block py-1 text-gray-600 hover:text-red-600 transition-colors duration-300"
                             >
                               {subItem.name}
                             </Link>
@@ -184,7 +188,7 @@ const Header = () => {
                     ) : (
                       <button
                         onClick={() => scrollToSection(item.sectionId!)}
-                        className="text-left py-2 text-lg text-gray-700 hover:text-blue-600 transition-colors duration-300"
+                        className="text-left py-2 text-lg text-gray-700 hover:text-red-600 transition-colors duration-300"
                       >
                         {item.name}
                       </button>
@@ -193,15 +197,15 @@ const Header = () => {
                 ))}
                 <div className="pt-4 border-t">
                   <a 
-                    href="tel:555-123-7446" 
-                    className="flex items-center space-x-2 text-blue-600 py-2 hover:text-blue-700 transition-colors duration-300"
+                    href="tel:7893821502" 
+                    className="flex items-center space-x-2 text-red-600 py-2 hover:text-red-700 transition-colors duration-300"
                   >
                     <Phone className="h-5 w-5" />
-                    <span className="font-semibold">(555) 123-SHINE</span>
+                    <span className="font-semibold">7893821502</span>
                   </a>
                   <Button 
                     onClick={() => scrollToSection('contact')}
-                    className="w-full mt-4 bg-gradient-to-r from-blue-900 to-blue-700"
+                    className="w-full mt-4 bg-gradient-to-r from-red-600 to-red-500"
                   >
                     Book Now
                   </Button>
