@@ -1,0 +1,371 @@
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
+import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Star } from 'lucide-react';
+
+const InteriorDeepClean = () => {
+  const included = [
+    "Complete vacuum of all surfaces including seats, carpets, and crevices",
+    "Steam cleaning of fabric seats and upholstery",
+    "Professional leather conditioning and protection",
+    "Dashboard and trim restoration with UV protection",
+    "Deep carpet shampooing and stain removal",
+    "Door jamb cleaning and detailing",
+    "Air vent cleaning and sanitization",
+    "Cup holder and console deep cleaning",
+    "Floor mat washing and treatment",
+    "Interior glass cleaning for crystal clarity"
+  ];
+
+  const process = [
+    {
+      step: 1,
+      title: "Assessment and Preparation",
+      description: "Thorough inspection of interior condition and removal of all personal items for complete access."
+    },
+    {
+      step: 2,
+      title: "Deep Vacuum Process",
+      description: "Complete vacuuming using professional equipment including crevice tools for hard-to-reach areas."
+    },
+    {
+      step: 3,
+      title: "Steam Cleaning",
+      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria and deep-set stains."
+    },
+    {
+      step: 4,
+      title: "Leather Treatment",
+      description: "Application of premium conditioners to restore and protect leather surfaces."
+    },
+    {
+      step: 5,
+      title: "Final Inspection",
+      description: "Comprehensive quality check and customer walkthrough to ensure complete satisfaction."
+    }
+  ];
+
+  const beforeAfter = [
+    {
+      before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      after: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+      description: "Fabric seat restoration"
+    },
+    {
+      before: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=400&q=80",
+      after: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=400&q=80",
+      description: "Dashboard and trim refresh"
+    }
+  ];
+
+  const relatedServices = [
+    {
+      title: "Premium Interior Protection",
+      price: "Starting at $149",
+      href: "/services/premium-interior-protection"
+    },
+    {
+      title: "Premium Wash & Wax",
+      price: "Starting at $49", 
+      href: "/services/premium-wash-wax"
+    },
+    {
+      title: "Mobile Detailing",
+      price: "Starting at $79",
+      href: "/services/mobile-detailing"
+    }
+  ];
+
+  const reviews = [
+    {
+      name: "Sarah Johnson",
+      rating: 5,
+      text: "Incredible transformation! My car's interior looks and smells brand new. The team removed stains I thought were permanent.",
+      service: "Interior Deep Clean"
+    },
+    {
+      name: "Michael Chen", 
+      rating: 5,
+      text: "Professional service from start to finish. They took great care with my leather seats and the results exceeded my expectations.",
+      service: "Interior Deep Clean"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Service Hero */}
+      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h1 className="text-5xl font-bold leading-tight">Interior Deep Clean</h1>
+              <p className="text-xl text-blue-100">
+                Complete interior transformation with professional steam cleaning, leather conditioning, 
+                and fabric protection. Perfect for family vehicles, pet owners, and high-mileage cars.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center space-x-2">
+                  <DollarSign className="h-5 w-5" />
+                  <span className="font-semibold">Starting at $89</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="h-5 w-5" />
+                  <span className="font-semibold">2-3 hours</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Shield className="h-5 w-5" />
+                  <span className="font-semibold">Satisfaction Guaranteed</span>
+                </div>
+              </div>
+              <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
+                <Link to="/contact">Book This Service</Link>
+              </Button>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" 
+                alt="Interior deep cleaning in progress"
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Included */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What's Included</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our Interior Deep Clean service covers every aspect of your vehicle's interior, 
+              leaving it spotless and refreshed.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {included.map((item, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <p className="text-gray-700">{item}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 bg-blue-50 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Why This Service Matters</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Your vehicle's interior endures daily wear from passengers, pets, food, drinks, and environmental factors. 
+              Over time, this leads to embedded dirt, stains, odors, and deterioration of surfaces. Our Interior Deep Clean 
+              service not only restores the appearance but also:
+            </p>
+            <ul className="space-y-2">
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <span>Improves air quality by removing allergens and bacteria</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <span>Protects and extends the life of interior surfaces</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <span>Maintains vehicle resale value</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <span>Creates a more pleasant driving experience</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Breakdown */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Detailed Process</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Every step is carefully executed using professional equipment and premium products 
+              to ensure exceptional results.
+            </p>
+          </div>
+          
+          <div className="space-y-8">
+            {process.map((item) => (
+              <Card key={item.step} className="bg-white border-0 shadow-lg">
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                        {item.step}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Before & After Gallery */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Before & After Results</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See the dramatic transformations we achieve with our Interior Deep Clean service.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {beforeAfter.map((item, index) => (
+              <Card key={index} className="bg-white border-0 shadow-lg overflow-hidden">
+                <div className="grid grid-cols-2">
+                  <div className="relative">
+                    <img src={item.before} alt="Before" className="w-full h-48 object-cover" />
+                    <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                      Before
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <img src={item.after} alt="After" className="w-full h-48 object-cover" />
+                    <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                      After
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <p className="text-center font-semibold text-gray-900">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          </div>
+          
+          <div className="space-y-6">
+            <Card className="bg-white border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">How often should I get an interior deep clean?</h3>
+                <p className="text-gray-600">We recommend an interior deep clean every 6-12 months for regular drivers, or every 3-6 months for families with children or pets.</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Do I need to remove personal items before service?</h3>
+                <p className="text-gray-600">Yes, please remove all personal belongings from your vehicle. Our team will handle the rest, including floor mats and seat covers if needed.</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Is this service safe for leather seats?</h3>
+                <p className="text-gray-600">Absolutely! We use premium leather-specific products and techniques. Our process actually helps protect and extend the life of your leather.</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white border-0 shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">What warranty do you offer?</h3>
+                <p className="text-gray-600">We offer a 30-day satisfaction guarantee. If you're not completely satisfied, we'll make it right at no additional charge.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Customer Reviews</h2>
+            <p className="text-xl text-gray-600">See what our customers say about their Interior Deep Clean experience</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {reviews.map((review, index) => (
+              <Card key={index} className="bg-gray-50 border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">"{review.text}"</p>
+                  <div>
+                    <p className="font-semibold text-gray-900">{review.name}</p>
+                    <p className="text-sm text-blue-600">{review.service}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Related Services</h2>
+            <p className="text-xl text-gray-600">Enhance your interior clean with these complementary services</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {relatedServices.map((service) => (
+              <Card key={service.title} className="bg-white border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-6 text-center">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+                  <p className="text-blue-600 font-semibold mb-4">{service.price}</p>
+                  <Button asChild variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white">
+                    <Link to={service.href}>Learn More</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Booking CTA */}
+      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Interior?</h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            Book your Interior Deep Clean service today and experience the difference professional 
+            detailing makes. Your satisfaction is guaranteed.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
+              <Link to="/contact" className="flex items-center space-x-2">
+                <span>Book This Service</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+              <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default InteriorDeepClean;
