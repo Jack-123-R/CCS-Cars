@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import InteriorDeepClean from "./pages/services/InteriorDeepClean";
 import PremiumInteriorProtection from "./pages/services/PremiumInteriorProtection";
@@ -36,7 +35,6 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about-us" element={<About />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/gallery" element={<Gallery />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/services/interior-deep-clean" element={<InteriorDeepClean />} />
               <Route path="/services/premium-interior-protection" element={<PremiumInteriorProtection />} />
