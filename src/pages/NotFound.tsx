@@ -38,18 +38,18 @@ const NotFound = () => {
 
         {/* 404 Text */}
         <div className="mb-6">
-          <h1 className="text-8xl md:text-9xl font-black text-white mb-4 tracking-wider">
-            4<span className="text-red-500 animate-pulse">0</span>4
+          <h1 className="text-8xl md:text-9xl font-black text-white drop-shadow-2xl mb-4 tracking-wider">
+            4<span className="text-red-400 animate-pulse">0</span>4
           </h1>
           <div className="w-24 h-1 bg-red-500 mx-auto mb-6 rounded-full"></div>
         </div>
 
         {/* Error Message */}
         <div className="mb-8 space-y-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg mb-4">
             Oops! Looks like this page took a wrong turn
           </h2>
-          <p className="text-lg text-gray-300 max-w-md mx-auto leading-relaxed">
+          <p className="text-lg text-gray-200 drop-shadow-md max-w-md mx-auto leading-relaxed">
             Don't worry, even the best cars need directions sometimes. 
             Let's get you back on the right road!
           </p>
@@ -60,7 +60,7 @@ const NotFound = () => {
           <Button 
             asChild 
             size="lg" 
-            className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg border-2 border-red-500"
           >
             <Link to="/" className="flex items-center gap-2">
               <Home className="w-5 h-5" />
@@ -72,7 +72,7 @@ const NotFound = () => {
             asChild 
             size="lg" 
             variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+            className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 backdrop-blur-sm"
           >
             <Link to="/services" className="flex items-center gap-2">
               <ArrowLeft className="w-5 h-5" />
@@ -82,8 +82,8 @@ const NotFound = () => {
         </div>
 
         {/* Additional Help Text */}
-        <div className="mt-12 text-gray-400 text-sm">
-          <p>Need help? Contact us at <a href="tel:7893821502" className="text-red-400 hover:text-red-300 underline">7893821502</a></p>
+        <div className="mt-12 text-gray-300 drop-shadow-md text-sm">
+          <p>Need help? Contact us at <a href="tel:7893821502" className="text-red-300 hover:text-red-200 underline font-medium">7893821502</a></p>
         </div>
       </div>
 
