@@ -18,6 +18,10 @@ const QuickContact = () => {
   
   const { toast } = useToast();
 
+  const handleLocationClick = () => {
+    window.open('https://maps.app.goo.gl/94ufcdfk7TtFSomw8', '_blank', 'noopener,noreferrer');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -76,8 +80,14 @@ const QuickContact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold">Visit Our Facility</h3>
-                  <p className="text-red-200">A57 Tarakarama Nagar, Film Nagar</p>
-                  <p className="text-red-200">Hyderabad, Sindh 500033</p>
+                  <div 
+                    className="text-red-200 cursor-pointer hover:text-white transition-colors"
+                    onClick={handleLocationClick}
+                    title="Click to open in Google Maps"
+                  >
+                    <p>A57 Tarakarama Nagar, Film Nagar</p>
+                    <p>Hyderabad, Sindh 500033</p>
+                  </div>
                 </div>
               </div>
             </div>
