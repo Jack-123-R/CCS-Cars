@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
 import ReelPlayer from './ReelPlayer';
@@ -54,14 +55,21 @@ const InstagramSection = () => {
           </Button>
         </div>
         
-        {/* Reels grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        {/* Responsive Reels grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
           {INSTAGRAM_REELS.map((reel) => (
-            <ReelPlayer
+            <div
               key={reel.id}
-              thumbnail={reel.thumbnail}
-              instagramUrl={reel.instagramUrl}
-            />
+              className="aspect-[9/16] w-full rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center"
+            >
+              {/* style for child: make sure ReelPlayer fills container */}
+              <div className="w-full h-full">
+                <ReelPlayer
+                  thumbnail={reel.thumbnail}
+                  instagramUrl={reel.instagramUrl}
+                />
+              </div>
+            </div>
           ))}
         </div>
 
