@@ -1,141 +1,71 @@
 
 import { Button } from '@/components/ui/button';
-import { Instagram, Play, Heart, MessageCircle, Share } from 'lucide-react';
-import { useState, useCallback, memo } from 'react';
+import { Instagram, Play } from 'lucide-react';
+import { useCallback, memo } from 'react';
 
-// Memoized individual reel component for better performance
-const InstagramReel = memo(({ reel, onClick }: { 
-  reel: { 
-    id: number; 
-    image: string; 
-    videoUrl: string; 
-    caption: string; 
-    likes: number; 
-    comments: number; 
-    isVideo: boolean; 
-  }, 
-  onClick: (url: string) => void 
-}) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  return (
-    <div 
-      className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[9/16] bg-gray-200"
-      onClick={() => onClick(reel.videoUrl)}
-    >
-      <img 
-        src={reel.image} 
-        alt={reel.caption}
-        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
-          imageLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        loading="lazy"
-        onLoad={() => setImageLoaded(true)}
-      />
-      
-      {/* Loading placeholder */}
-      {!imageLoaded && (
-        <div className="absolute inset-0 bg-gray-300 animate-pulse" />
-      )}
-
-      {/* Play button overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 group-hover:scale-110 transition-transform duration-300">
-          <Play className="h-8 w-8 text-white fill-white" />
-        </div>
+// Card for a single Instagram Reel link
+const InstagramReel = memo((
+  { reel, onClick }: { 
+    reel: { 
+      id: number; 
+      url: string;
+    }, 
+    onClick: (url: string) => void 
+  }
+) => (
+  <div
+    className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[9/16] bg-gradient-to-br from-pink-500 to-purple-700 flex items-center justify-center"
+    onClick={() => onClick(reel.url)}
+    tabIndex={0}
+    role="button"
+    aria-label="Open Instagram Reel"
+  >
+    {/* Center: Play Button & Instagram icon */}
+    <div className="flex flex-col items-center">
+      <div className="rounded-full bg-white/70 backdrop-blur-sm p-4 mb-3 group-hover:scale-110 transition-transform">
+        <Play className="h-10 w-10 text-pink-600 drop-shadow-md" />
       </div>
-
-      {/* Instagram reel indicators */}
-      <div className="absolute top-3 right-3">
-        <div className="bg-black/50 rounded-full p-1">
-          <Instagram className="h-4 w-4 text-white" />
-        </div>
-      </div>
-
-      {/* Engagement stats */}
-      <div className="absolute bottom-3 right-3 flex flex-col items-center space-y-2">
-        <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
-          <Heart className="h-3 w-3 text-white" />
-          <span className="text-white text-xs font-medium">{reel.likes.toLocaleString()}</span>
-        </div>
-        <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
-          <MessageCircle className="h-3 w-3 text-white" />
-          <span className="text-white text-xs font-medium">{reel.comments}</span>
-        </div>
-      </div>
-
-      {/* Hover overlay with caption */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="absolute bottom-3 left-3 right-16">
-          <p className="text-white text-xs leading-tight line-clamp-3">{reel.caption}</p>
-        </div>
-      </div>
+      <Instagram className="h-8 w-8 text-white mb-2" />
+      <span className="text-white text-xs font-semibold px-2 py-1 bg-black/40 rounded">
+        Watch Reel
+      </span>
     </div>
-  );
-});
-
+    {/* Hover effect */}
+    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity" />
+  </div>
+));
 InstagramReel.displayName = 'InstagramReel';
 
-const InstagramSection = () => {
-  const reels = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
-      caption: "Paint correction transformation on this beautiful BMW 🚗✨ #PaintCorrection #BMW #CarDetailing",
-      likes: 2453,
-      comments: 89,
-      isVideo: true
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
-      caption: "Ceramic coating application process - watch the magic happen! 💎 #CeramicCoating #CarCare",
-      likes: 1892,
-      comments: 67,
-      isVideo: true
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
-      caption: "Interior detailing before and after - incredible transformation! 🔥 #InteriorDetailing #BeforeAfter",
-      likes: 3201,
-      comments: 124,
-      isVideo: true
-    },
-    {
-      id: 4,
-      image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
-      caption: "Engine bay cleaning transformation - from dirty to spotless! 🧽 #EngineBay #Detailing",
-      likes: 1567,
-      comments: 43,
-      isVideo: true
-    },
-    {
-      id: 5,
-      image: "https://images.unsplash.com/photo-1555353540-38b469e74d6b?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
-      caption: "Mobile detailing service in action - we come to you! 🚐 #MobileDetailing #Convenience",
-      likes: 2789,
-      comments: 91,
-      isVideo: true
-    },
-    {
-      id: 6,
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
-      caption: "Luxury vehicle complete detail - perfection in every detail! 💯 #LuxuryCars #Premium",
-      likes: 4123,
-      comments: 156,
-      isVideo: true
-    }
-  ];
+const INSTAGRAM_REELS = [
+  {
+    id: 1,
+    url: "https://www.instagram.com/reel/C7dmUp4P7Gt/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 2,
+    url: "https://www.instagram.com/reel/C4fZLSBPlYD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 3,
+    url: "https://www.instagram.com/reel/C4Pu_Z1vDL6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 4,
+    url: "https://www.instagram.com/reel/DE7EicjzgeE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 5,
+    url: "https://www.instagram.com/reel/DEAMSdPss6T/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 6,
+    url: "https://www.instagram.com/reel/DCoXp7sz_xc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+];
 
-  const handleReelClick = useCallback((videoUrl: string) => {
-    window.open(videoUrl, '_blank', 'noopener,noreferrer');
+const InstagramSection = () => {
+  const handleReelClick = useCallback((reelUrl: string) => {
+    window.open(reelUrl, '_blank', 'noopener,noreferrer');
   }, []);
 
   return (
@@ -150,7 +80,12 @@ const InstagramSection = () => {
             Follow us @ccshyderabad for daily automotive inspiration and tips.
           </p>
           <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
-            <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+            <a
+              href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2"
+            >
               <Instagram className="h-5 w-5" />
               <span>Follow @ccshyderabad</span>
             </a>
@@ -158,10 +93,10 @@ const InstagramSection = () => {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-          {reels.map((reel) => (
-            <InstagramReel 
-              key={reel.id} 
-              reel={reel} 
+          {INSTAGRAM_REELS.map((reel) => (
+            <InstagramReel
+              key={reel.id}
+              reel={reel}
               onClick={handleReelClick}
             />
           ))}
