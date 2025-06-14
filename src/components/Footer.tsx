@@ -1,8 +1,15 @@
 
+
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
+  const handleLocationClick = () => {
+    const address = "A57 Tarakarama Nagar, Film Nagar, Hyderabad, Sindh 500033";
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -86,7 +93,11 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-red-400 mt-1" />
-                <div className="text-gray-400">
+                <div 
+                  className="text-gray-400 cursor-pointer hover:text-white transition-colors"
+                  onClick={handleLocationClick}
+                  title="Click to open in Google Maps"
+                >
                   <p>A57 Tarakarama Nagar</p>
                   <p>Film Nagar, Hyderabad</p>
                   <p>Sindh 500033</p>
@@ -143,3 +154,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
