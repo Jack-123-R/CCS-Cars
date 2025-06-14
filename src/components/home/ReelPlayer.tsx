@@ -1,47 +1,35 @@
 
-import { useState } from "react";
-import { Play } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 interface ReelPlayerProps {
   thumbnail: string;
-  videoUrl: string;
+  instagramUrl: string;
   alt?: string;
 }
-
-const ReelPlayer = ({ thumbnail, videoUrl, alt = "Instagram Reel" }: ReelPlayerProps) => {
-  const [playing, setPlaying] = useState(false);
-
+const ReelPlayer = ({ thumbnail, instagramUrl, alt = "Instagram Reel" }: ReelPlayerProps) => {
   return (
-    <Card className="overflow-hidden p-0 aspect-[9/16] group relative bg-black hover-scale transition-all shadow-lg">
-      {!playing ? (
-        <button
-          className="relative w-full h-full flex flex-col items-center justify-center group"
-          onClick={() => setPlaying(true)}
-        >
-          <img
-            src={thumbnail}
-            alt={alt}
-            className="object-cover w-full h-full transition-transform group-hover:scale-105"
-            loading="lazy"
-            draggable={false}
-          />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-opacity" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="rounded-full bg-white/80 p-4 mb-3 backdrop-blur-md shadow-lg">
-              <Play className="h-10 w-10 text-pink-600 drop-shadow" />
-            </span>
-            <span className="text-white text-xs font-semibold px-2 py-1 bg-black/50 rounded">Play Reel</span>
-          </div>
-        </button>
-      ) : (
-        <video
-          src={videoUrl}
-          controls
-          autoPlay
-          className="object-cover w-full h-full"
-        />
-      )}
+    <Card className="overflow-hidden p-0 aspect-[9/16] group relative bg-black cursor-pointer hover:scale-[1.03] transition-all shadow-lg"
+      onClick={() => window.open(instagramUrl, "_blank", "noopener,noreferrer")}
+      tabIndex={0}
+      role="button"
+      aria-label="Watch on Instagram"
+      onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && window.open(instagramUrl, "_blank", "noopener,noreferrer")}
+    >
+      <img
+        src={thumbnail}
+        alt={alt}
+        className="object-cover w-full h-full transition-transform group-hover:scale-105"
+        loading="lazy"
+        draggable={false}
+      />
+      <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-opacity" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+        <span className="rounded-full bg-white/90 p-3 mb-2 backdrop-blur-sm shadow-lg">
+          <Instagram className="h-8 w-8 text-pink-600 drop-shadow" />
+        </span>
+        <span className="text-white text-xs font-semibold px-2 py-1 bg-black/60 rounded">Watch on Instagram</span>
+      </div>
     </Card>
   );
 };

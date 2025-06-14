@@ -4,36 +4,41 @@ import { Instagram } from 'lucide-react';
 import ReelPlayer from './ReelPlayer';
 
 const INSTAGRAM_REELS = [
-  // Replace these with your REAL thumbnail and video URLs
   {
     id: 1,
-    thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&q=80",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // Placeholder video, replace with real
+    // https://www.instagram.com/reel/C7dmUp4P7Gt/
+    thumbnail: "https://instagram.fhyd12-1.fna.fbcdn.net/v/t51.29350-15/441431019_440290465256288_4964176356862759070_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=lwli3dJPLOkQ7kNvgGSvpk7&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYC4jPny6m-xwI17RWlp5JeRkzmrr3fVwdiFlS1Kj7oFfA&oe=666A8105&_nc_sid=10d13b",
+    instagramUrl: "https://www.instagram.com/reel/C7dmUp4P7Gt/"
   },
   {
     id: 2,
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-    videoUrl: "https://www.w3schools.com/html/movie.mp4",
+    // https://www.instagram.com/reel/C4fZLSBPlYD/
+    thumbnail: "https://instagram.fhyd12-2.fna.fbcdn.net/v/t51.2885-15/429439836_1104372903958506_1893946657108716050_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-2.fna.fbcdn.net&_nc_cat=107&_nc_ohc=rB5qOtrwGNQQ7kNvgGSdAij&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYD4JXOK6OPzxytRLVMX_0BQtg2MO0bOKgAT1V5NE6iJrw&oe=666A7CCB&_nc_sid=10d13b",
+    instagramUrl: "https://www.instagram.com/reel/C4fZLSBPlYD/"
   },
   {
     id: 3,
-    thumbnail: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    // https://www.instagram.com/reel/C4Pu_Z1vDL6/
+    thumbnail: "https://instagram.fhyd12-1.fna.fbcdn.net/v/t51.2885-15/428936589_717818130191177_7357585736972857677_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=bGHXgk5TBo8Q7kNvgFGluwe&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYDKaaW8e8hO20rPi7obwMxKXSvJj_mJKZ8tjDO0l58G_w&oe=666A888C&_nc_sid=10d13b",
+    instagramUrl: "https://www.instagram.com/reel/C4Pu_Z1vDL6/"
   },
   {
     id: 4,
-    thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
-    videoUrl: "https://www.w3schools.com/html/movie.mp4",
+    // https://www.instagram.com/reel/DE7EicjzgeE/
+    thumbnail: "https://instagram.fhyd12-1.fna.fbcdn.net/v/t51.2885-15/435393732_367458929622533_3197236015176065529_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=fkv1DsYB9z4Q7kNvgF7v9l4&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYCo7dQiD5TVr9IHlQ896-k1IzWl35TCn7htPaAQ5syZdg&oe=666A98C1&_nc_sid=10d13b",
+    instagramUrl: "https://www.instagram.com/reel/DE7EicjzgeE/"
   },
   {
     id: 5,
-    thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&q=80",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    // https://www.instagram.com/reel/DEAMSdPss6T/
+    thumbnail: "https://instagram.fhyd12-2.fna.fbcdn.net/v/t51.2885-15/434537899_260110063764758_2510788938839215257_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=K5kPMWxp1DYQ7kNvgE_GGh2&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYD7VSCpe2mtv0OYXq-vn-_hVDfelJHLzlLEIDgB5qaaAg&oe=666A7C6C&_nc_sid=10d13b",
+    instagramUrl: "https://www.instagram.com/reel/DEAMSdPss6T/"
   },
   {
     id: 6,
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-    videoUrl: "https://www.w3schools.com/html/movie.mp4",
+    // https://www.instagram.com/reel/DCoXp7sz_xc/
+    thumbnail: "https://instagram.fhyd12-2.fna.fbcdn.net/v/t51.2885-15/435438784_969311460925008_2923148725023450851_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=zBrlhC9JBrgQ7kNvgHeC8hc&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYBK8r97ZVJSKAb2p9_4Ina29Ir5YYL2rgleQpq77h2FDw&oe=666A7604&_nc_sid=10d13b",
+    instagramUrl: "https://www.instagram.com/reel/DCoXp7sz_xc/"
   },
 ];
 
@@ -68,7 +73,7 @@ const InstagramSection = () => {
             <ReelPlayer
               key={reel.id}
               thumbnail={reel.thumbnail}
-              videoUrl={reel.videoUrl}
+              instagramUrl={reel.instagramUrl}
             />
           ))}
         </div>
