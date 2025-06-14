@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={feature.title} className="text-center group">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                 <feature.icon className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -60,23 +60,23 @@ const WhyChooseUs = () => {
           ))}
         </div>
         
-        <div className="mt-16 bg-gradient-to-r from-blue-900 to-blue-700 rounded-2xl p-8 text-center text-white">
+        <div className="mt-16 bg-gradient-to-r from-red-600 to-red-500 rounded-2xl p-8 text-center text-white">
           <h3 className="text-2xl font-bold mb-4">50,000+ Satisfied Customers</h3>
-          <p className="text-lg mb-6 text-blue-100">
+          <p className="text-lg mb-6 text-red-100">
             Join thousands of car owners who trust us with their vehicles. See why we're Metro City's #1 choice for professional auto detailing.
           </p>
           <div className="flex justify-center items-center space-x-8">
             <div>
               <p className="text-3xl font-bold text-yellow-400">4.9/5</p>
-              <p className="text-sm text-blue-200">Average Rating</p>
+              <p className="text-sm text-red-200">Average Rating</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-yellow-400">500+</p>
-              <p className="text-sm text-blue-200">Google Reviews</p>
+              <p className="text-sm text-red-200">Google Reviews</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-yellow-400">20+</p>
-              <p className="text-sm text-blue-200">Years in Business</p>
+              <p className="text-sm text-red-200">Years in Business</p>
             </div>
           </div>
         </div>
