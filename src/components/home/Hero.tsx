@@ -102,7 +102,7 @@ const Hero = () => {
                 onClick={() => scrollToSection('services')}
                 variant="outline" 
                 size="lg" 
-                className="border-white text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
+                className="border-2 border-white/80 bg-white/10 text-white hover:bg-white hover:text-blue-900 hover:border-white px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
               >
                 <Play className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                 <span>View Services</span>

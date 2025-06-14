@@ -100,6 +100,21 @@
   }
 }
 
+/* Custom button utilities for better visibility */
+@layer components {
+  .btn-secondary-outline {
+    @apply border-2 border-current bg-transparent text-current hover:bg-current hover:text-white transition-all duration-300;
+  }
+  
+  .btn-secondary-light {
+    @apply border-2 border-white/80 bg-white/10 text-white hover:bg-white hover:text-gray-900 transition-all duration-300;
+  }
+  
+  .btn-secondary-dark {
+    @apply border-2 border-gray-800 bg-gray-100 text-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300;
+  }
+}
+
 /* Custom animations */
 @keyframes fade-in {
   from {
