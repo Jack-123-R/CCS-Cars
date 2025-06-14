@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
 import ReelPlayer from './ReelPlayer';
@@ -27,19 +26,7 @@ const INSTAGRAM_REELS = [
     // https://www.instagram.com/reel/DE7EicjzgeE/
     thumbnail: "https://instagram.fhyd12-1.fna.fbcdn.net/v/t51.2885-15/435393732_367458929622533_3197236015176065529_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=fkv1DsYB9z4Q7kNvgF7v9l4&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYCo7dQiD5TVr9IHlQ896-k1IzWl35TCn7htPaAQ5syZdg&oe=666A98C1&_nc_sid=10d13b",
     instagramUrl: "https://www.instagram.com/reel/DE7EicjzgeE/"
-  },
-  {
-    id: 5,
-    // https://www.instagram.com/reel/DEAMSdPss6T/
-    thumbnail: "https://instagram.fhyd12-2.fna.fbcdn.net/v/t51.2885-15/434537899_260110063764758_2510788938839215257_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=K5kPMWxp1DYQ7kNvgE_GGh2&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYD7VSCpe2mtv0OYXq-vn-_hVDfelJHLzlLEIDgB5qaaAg&oe=666A7C6C&_nc_sid=10d13b",
-    instagramUrl: "https://www.instagram.com/reel/DEAMSdPss6T/"
-  },
-  {
-    id: 6,
-    // https://www.instagram.com/reel/DCoXp7sz_xc/
-    thumbnail: "https://instagram.fhyd12-2.fna.fbcdn.net/v/t51.2885-15/435438784_969311460925008_2923148725023450851_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=zBrlhC9JBrgQ7kNvgHeC8hc&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYBK8r97ZVJSKAb2p9_4Ina29Ir5YYL2rgleQpq77h2FDw&oe=666A7604&_nc_sid=10d13b",
-    instagramUrl: "https://www.instagram.com/reel/DCoXp7sz_xc/"
-  },
+  }
 ];
 
 const InstagramSection = () => {
