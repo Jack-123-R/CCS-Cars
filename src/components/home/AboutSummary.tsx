@@ -23,7 +23,7 @@ const AboutSummary = () => {
               transformed over 50,000 vehicles. We combine traditional craftsmanship with cutting-edge 
               technology to deliver results that exceed expectations every time.
             </p>
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600">
+            <Button asChild size="lg" className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600">
               <Link to="/about-us" className="flex items-center space-x-2">
                 <span>Learn More About Us</span>
                 <ArrowRight className="h-5 w-5" />
@@ -44,7 +44,7 @@ const AboutSummary = () => {
               />
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-lg shadow-lg border">
-              <p className="text-2xl font-bold text-blue-900">20+</p>
+              <p className="text-2xl font-bold text-red-600">20+</p>
               <p className="text-sm text-gray-600">Years Experience</p>
             </div>
           </div>

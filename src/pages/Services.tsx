@@ -130,11 +130,11 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-br from-red-600 to-red-500 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Complete Car Care Solutions</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-red-100 max-w-3xl mx-auto leading-relaxed">
               From basic washes to advanced paint correction, we offer comprehensive detailing services 
               tailored to your vehicle's specific needs and your budget.
             </p>
@@ -161,7 +161,7 @@ const Services = () => {
                         alt={service.title}
                         className="w-full h-64 md:h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                      <div className="absolute top-4 left-4 bg-blue-900 text-white p-2 rounded-full">
+                      <div className="absolute top-4 left-4 bg-red-600 text-white p-2 rounded-full">
                         <service.icon className="h-5 w-5" />
                       </div>
                     </div>
@@ -183,11 +183,11 @@ const Services = () => {
                       <div>
                         <div className="flex justify-between items-center mb-4">
                           <div>
-                            <span className="text-lg font-bold text-blue-900">{service.price}</span>
+                            <span className="text-lg font-bold text-red-600">{service.price}</span>
                             <p className="text-sm text-gray-500">{service.duration}</p>
                           </div>
                         </div>
-                        <Button asChild className="w-full bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600">
+                        <Button asChild className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600">
                           <Link to={service.href}>View Details</Link>
                         </Button>
                       </div>
@@ -201,11 +201,11 @@ const Services = () => {
       ))}
 
       {/* Package Deals */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-600 to-red-500 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Package Deals & Bundles</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-red-100 max-w-3xl mx-auto">
               Save money with our carefully crafted service packages designed to provide 
               comprehensive care at great value.
             </p>
@@ -223,7 +223,7 @@ const Services = () => {
                 )}
                 <CardContent className="p-8 text-center">
                   <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
-                  <p className="text-4xl font-bold text-blue-900 mb-6">{pkg.price}</p>
+                  <p className="text-4xl font-bold text-red-600 mb-6">{pkg.price}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.services.map((service, index) => (
                       <li key={index} className="flex items-center space-x-2">
@@ -232,7 +232,7 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full ${pkg.popular ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-900 hover:bg-blue-800'}`}>
+                  <Button className={`w-full ${pkg.popular ? 'bg-orange-500 hover:bg-orange-600' : 'bg-red-600 hover:bg-red-700'}`}>
                     <Link to="/contact">Book This Package</Link>
                   </Button>
                 </CardContent>
@@ -251,10 +251,10 @@ const Services = () => {
             recommendations based on your vehicle's condition and your specific needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600">
+            <Button asChild size="lg" className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600">
               <Link to="/contact">Free Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-50 hover:text-blue-900">
+            <Button asChild size="lg" variant="outline" className="border-red-600 text-red-600 hover:bg-red-50 hover:text-red-600">
               <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
             </Button>
           </div>
