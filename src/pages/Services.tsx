@@ -94,13 +94,13 @@ const Services = () => {
         },
         {
           icon: Smartphone,
-          title: "Car Lights Service",
-          description: "Professional car lighting services at your location - home, office, or anywhere convenient.",
+          title: "Mobile Detailing",
+          description: "Professional car detailing services at your location - home, office, or anywhere convenient.",
           price: "Starting at ₹6,500",
           duration: "2-4 hours",
           href: "/services/mobile-detailing",
           image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80",
-          included: ["At your location", "Full equipment setup", "LED upgrade", "All lighting solutions"]
+          included: ["At your location", "Full equipment setup", "Professional service", "Complete convenience"]
         }
       ]
     }

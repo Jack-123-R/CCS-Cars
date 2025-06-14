@@ -63,12 +63,12 @@ const MobileDetailing = () => {
   return (
     <div className="min-h-screen">
       {/* Service Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-br from-red-900 to-red-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">Mobile Detailing Service</h1>
-              <p className="text-xl text-blue-100">
+              <p className="text-xl text-red-100">
                 Professional auto detailing that comes to you. Whether at home, office, or any location, 
                 we bring our expertise and equipment directly to your vehicle for ultimate convenience.
               </p>
@@ -119,7 +119,7 @@ const MobileDetailing = () => {
             {locations.map((location) => (
               <Card key={location.title} className="text-center bg-white border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-8">
-                  <location.icon className="h-12 w-12 text-blue-900 mx-auto mb-4" />
+                  <location.icon className="h-12 w-12 text-red-900 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{location.title}</h3>
                   <p className="text-gray-600">{location.description}</p>
                 </CardContent>
@@ -151,7 +151,7 @@ const MobileDetailing = () => {
                 )}
                 <CardContent className="p-8 text-center">
                   <h3 className="text-2xl font-bold mb-2">{level.name}</h3>
-                  <p className="text-4xl font-bold text-blue-900 mb-2">{level.price}</p>
+                  <p className="text-4xl font-bold text-red-900 mb-2">{level.price}</p>
                   <p className="text-gray-600 mb-6">{level.duration}</p>
                   <ul className="space-y-3 mb-8">
                     {level.services.map((service, index) => (
@@ -161,7 +161,7 @@ const MobileDetailing = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full ${level.popular ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-900 hover:bg-blue-800'}`}>
+                  <Button className={`w-full ${level.popular ? 'bg-orange-500 hover:bg-orange-600' : 'bg-red-900 hover:bg-red-800'}`}>
                     <Link to="/contact">Book {level.name}</Link>
                   </Button>
                 </CardContent>
@@ -190,7 +190,7 @@ const MobileDetailing = () => {
             ))}
           </div>
           
-          <div className="mt-12 bg-blue-50 rounded-lg p-8">
+          <div className="mt-12 bg-red-50 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Mobile Detailing?</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
@@ -222,7 +222,7 @@ const MobileDetailing = () => {
           
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="text-center">
-              <MapPin className="h-16 w-16 text-blue-900 mx-auto mb-4" />
+              <MapPin className="h-16 w-16 text-red-900 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">25-Mile Service Radius</h3>
               <p className="text-gray-600 mb-6">
                 Serving Metro City and all surrounding communities. If you're unsure whether 
@@ -251,10 +251,10 @@ const MobileDetailing = () => {
       </section>
 
       {/* Booking CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-900 to-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready for Ultimate Convenience?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
             Book your mobile detailing service today and experience professional auto care 
             without leaving your home or office.
           </p>
@@ -265,7 +265,7 @@ const MobileDetailing = () => {
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
               <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
             </Button>
           </div>
