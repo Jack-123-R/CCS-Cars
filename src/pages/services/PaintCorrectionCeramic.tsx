@@ -71,12 +71,12 @@ const PaintCorrectionCeramic = () => {
   return (
     <div className="min-h-screen">
       {/* Service Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-br from-red-900 to-red-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">Paint Correction & Ceramic Coating</h1>
-              <p className="text-xl text-blue-100">
+              <p className="text-xl text-red-100">
                 The ultimate paint enhancement and protection service. Multi-stage correction removes 
                 years of damage, followed by premium ceramic coating for long-lasting protection and incredible gloss.
               </p>
@@ -156,7 +156,7 @@ const PaintCorrectionCeramic = () => {
             ))}
           </div>
           
-          <div className="mt-12 bg-blue-50 rounded-lg p-8">
+          <div className="mt-12 bg-red-50 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Best For</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
@@ -251,10 +251,10 @@ const PaintCorrectionCeramic = () => {
       </section>
 
       {/* Booking CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-900 to-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready for the Ultimate Paint Enhancement?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
             Transform your vehicle's paint with our professional correction and ceramic coating service. 
             Book your consultation today and see the difference quality makes.
           </p>
@@ -265,7 +265,7 @@ const PaintCorrectionCeramic = () => {
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
               <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
             </Button>
           </div>
