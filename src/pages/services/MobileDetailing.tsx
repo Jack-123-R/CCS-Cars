@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -39,21 +38,21 @@ const MobileDetailing = () => {
   const servicelevels = [
     {
       name: "Mobile Express",
-      price: "$79",
+      price: "₹6,500",
       duration: "1-1.5 hours",
       services: ["Exterior wash", "Vacuum interior", "Window cleaning", "Tire shine"],
       popular: false
     },
     {
       name: "Mobile Complete",
-      price: "$149",
+      price: "₹12,500",
       duration: "2-3 hours", 
       services: ["Premium wash & wax", "Interior deep clean", "Wheel detailing", "Dashboard treatment"],
       popular: true
     },
     {
       name: "Mobile Ultimate",
-      price: "$299",
+      price: "₹25,000",
       duration: "4-5 hours",
       services: ["Complete detail", "Paint enhancement", "Interior protection", "Engine bay clean"],
       popular: false
@@ -75,7 +74,7 @@ const MobileDetailing = () => {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center space-x-2">
                   <DollarSign className="h-5 w-5" />
-                  <span className="font-semibold">Starting at $79</span>
+                  <span className="font-semibold">Starting at ₹6,500</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5" />

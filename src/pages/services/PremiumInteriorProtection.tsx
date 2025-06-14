@@ -97,7 +97,7 @@ const PremiumInteriorProtection = () => {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center space-x-2">
                   <DollarSign className="h-5 w-5" />
-                  <span className="font-semibold">Starting at $149</span>
+                  <span className="font-semibold">Starting at ₹12,500</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5" />
