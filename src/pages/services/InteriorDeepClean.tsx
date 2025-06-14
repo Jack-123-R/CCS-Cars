@@ -1,10 +1,12 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Star } from 'lucide-react';
+import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Star, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 const InteriorDeepClean = () => {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
   const included = [
     "Complete vacuum of all surfaces including seats, carpets, and crevices",
     "Steam cleaning of fabric seats and upholstery",
@@ -22,27 +24,32 @@ const InteriorDeepClean = () => {
     {
       step: 1,
       title: "Assessment and Preparation",
-      description: "Thorough inspection of interior condition and removal of all personal items for complete access."
+      description: "Thorough inspection of interior condition and removal of all personal items for complete access.",
+      details: "We evaluate the condition of all interior surfaces, identify problem areas, and remove all personal belongings to ensure complete access to every surface that needs attention."
     },
     {
       step: 2,
       title: "Deep Vacuum Process",
-      description: "Complete vacuuming using professional equipment including crevice tools for hard-to-reach areas."
+      description: "Complete vacuuming using professional equipment including crevice tools for hard-to-reach areas.",
+      details: "Using commercial-grade vacuum equipment with specialized attachments, we remove all loose debris from seats, carpets, floor mats, and hard-to-reach crevices between and under seats."
     },
     {
       step: 3,
       title: "Steam Cleaning",
-      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria and deep-set stains."
+      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria and deep-set stains.",
+      details: "Professional steam cleaning equipment penetrates deep into fabric fibers, killing bacteria and allergens while lifting embedded dirt and stains that regular cleaning cannot reach."
     },
     {
       step: 4,
       title: "Leather Treatment",
-      description: "Application of premium conditioners to restore and protect leather surfaces."
+      description: "Application of premium conditioners to restore and protect leather surfaces.",
+      details: "Specialized leather cleaning products remove dirt and oils, followed by conditioning treatments that restore moisture and flexibility while providing UV protection against cracking and fading."
     },
     {
       step: 5,
       title: "Final Inspection",
-      description: "Comprehensive quality check and customer walkthrough to ensure complete satisfaction."
+      description: "Comprehensive quality check and customer walkthrough to ensure complete satisfaction.",
+      details: "Final inspection includes checking all cleaned surfaces, ensuring no areas were missed, and conducting a customer walkthrough to guarantee your complete satisfaction with our work."
     }
   ];
 
@@ -92,15 +99,19 @@ const InteriorDeepClean = () => {
     }
   ];
 
+  const toggleStep = (stepNumber: number) => {
+    setActiveStep(activeStep === stepNumber ? null : stepNumber);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Service Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-br from-red-900 to-red-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">Interior Deep Clean</h1>
-              <p className="text-xl text-blue-100">
+              <p className="text-xl text-red-100">
                 Complete interior transformation with professional steam cleaning, leather conditioning, 
                 and fabric protection. Perfect for family vehicles, pet owners, and high-mileage cars.
               </p>
@@ -153,7 +164,7 @@ const InteriorDeepClean = () => {
             ))}
           </div>
           
-          <div className="mt-12 bg-blue-50 rounded-lg p-8">
+          <div className="mt-12 bg-red-50 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Why This Service Matters</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               Your vehicle's interior endures daily wear from passengers, pets, food, drinks, and environmental factors. 
@@ -162,19 +173,19 @@ const InteriorDeepClean = () => {
             </p>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <CheckCircle className="h-5 w-5 text-red-600" />
                 <span>Improves air quality by removing allergens and bacteria</span>
               </li>
               <li className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <CheckCircle className="h-5 w-5 text-red-600" />
                 <span>Protects and extends the life of interior surfaces</span>
               </li>
               <li className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <CheckCircle className="h-5 w-5 text-red-600" />
                 <span>Maintains vehicle resale value</span>
               </li>
               <li className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <CheckCircle className="h-5 w-5 text-red-600" />
                 <span>Creates a more pleasant driving experience</span>
               </li>
             </ul>
@@ -182,32 +193,53 @@ const InteriorDeepClean = () => {
         </div>
       </section>
 
-      {/* Process Breakdown */}
+      {/* Interactive Process Breakdown */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Detailed Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every step is carefully executed using professional equipment and premium products 
-              to ensure exceptional results.
+              Click on each step to learn more about our professional cleaning process and 
+              the equipment we use to achieve exceptional results.
             </p>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-4">
             {process.map((item) => (
-              <Card key={item.step} className="bg-white border-0 shadow-lg">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                        {item.step}
+              <Card key={item.step} className="bg-white border-0 shadow-lg transition-all duration-300 hover:shadow-xl">
+                <CardContent className="p-0">
+                  <button
+                    onClick={() => toggleStep(item.step)}
+                    className="w-full p-8 text-left focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-6">
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 bg-red-900 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            {item.step}
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                          <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0">
+                        {activeStep === item.step ? (
+                          <ChevronUp className="h-6 w-6 text-red-600" />
+                        ) : (
+                          <ChevronDown className="h-6 w-6 text-gray-400" />
+                        )}
                       </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  </button>
+                  {activeStep === item.step && (
+                    <div className="px-8 pb-8 pt-0">
+                      <div className="bg-red-50 rounded-lg p-6 ml-18">
+                        <p className="text-gray-700 leading-relaxed">{item.details}</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -332,8 +364,8 @@ const InteriorDeepClean = () => {
               <Card key={service.title} className="bg-white border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-6 text-center">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-blue-600 font-semibold mb-4">{service.price}</p>
-                  <Button asChild variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white">
+                  <p className="text-red-600 font-semibold mb-4">{service.price}</p>
+                  <Button asChild variant="outline" className="border-red-900 text-red-900 hover:bg-red-900 hover:text-white">
                     <Link to={service.href}>Learn More</Link>
                   </Button>
                 </CardContent>
@@ -344,10 +376,10 @@ const InteriorDeepClean = () => {
       </section>
 
       {/* Booking CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-900 to-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Interior?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
             Book your Interior Deep Clean service today and experience the difference professional 
             detailing makes. Your satisfaction is guaranteed.
           </p>
@@ -358,7 +390,7 @@ const InteriorDeepClean = () => {
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
               <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
             </Button>
           </div>

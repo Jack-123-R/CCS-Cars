@@ -2,9 +2,12 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Star, Droplet, Sun } from 'lucide-react';
+import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Star, Droplet, Sun, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 const PremiumInteriorProtection = () => {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
   const included = [
     "Complete interior assessment and preparation",
     "Fabric protection coating application",
@@ -16,6 +19,39 @@ const PremiumInteriorProtection = () => {
     "Scotchgard or equivalent fabric protection",
     "Professional application with proper curing time",
     "Detailed care instructions and warranty information"
+  ];
+
+  const process = [
+    {
+      step: 1,
+      title: "Complete Interior Assessment",
+      description: "Thorough evaluation of all interior surfaces and materials to determine the best protection approach.",
+      details: "We identify different material types including leather, fabric, plastics, and trim pieces to select the appropriate protection products for each surface type."
+    },
+    {
+      step: 2,
+      title: "Deep Cleaning and Preparation",
+      description: "Professional cleaning of all surfaces to ensure optimal adhesion of protection products.",
+      details: "Complete interior cleaning removes all contaminants that could interfere with protection product bonding. This includes vacuuming, steam cleaning, and specialized surface preparation."
+    },
+    {
+      step: 3,
+      title: "Fabric Protection Application",
+      description: "Application of advanced fabric protection coatings to all cloth surfaces including seats and carpets.",
+      details: "Scotchgard or equivalent protection creates an invisible barrier that repels liquids and prevents stains from setting into fabric fibers."
+    },
+    {
+      step: 4,
+      title: "Leather Conditioning and Protection",
+      description: "Specialized treatment for leather surfaces including conditioning and protective coating application.",
+      details: "Premium leather conditioners restore moisture and flexibility while protective coatings provide UV resistance and prevent cracking and fading."
+    },
+    {
+      step: 5,
+      title: "Final Protection and Quality Check",
+      description: "Application of UV protection to dashboard and trim, followed by comprehensive quality inspection.",
+      details: "Final UV protection prevents sun damage and fading. Complete quality check ensures all surfaces are properly protected and ready for years of protection."
+    }
   ];
 
   const benefits = [
@@ -36,15 +72,19 @@ const PremiumInteriorProtection = () => {
     }
   ];
 
+  const toggleStep = (stepNumber: number) => {
+    setActiveStep(activeStep === stepNumber ? null : stepNumber);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Service Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-br from-red-900 to-red-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">Premium Interior Protection</h1>
-              <p className="text-xl text-blue-100">
+              <p className="text-xl text-red-100">
                 Advanced protection for all interior surfaces. Professional-grade coatings and treatments 
                 that guard against stains, UV damage, and everyday wear for years of pristine interiors.
               </p>
@@ -91,7 +131,7 @@ const PremiumInteriorProtection = () => {
             {benefits.map((benefit) => (
               <Card key={benefit.title} className="text-center bg-white border-0 shadow-lg">
                 <CardContent className="p-8">
-                  <benefit.icon className="h-12 w-12 text-blue-900 mx-auto mb-4" />
+                  <benefit.icon className="h-12 w-12 text-red-900 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
                 </CardContent>
@@ -122,11 +162,64 @@ const PremiumInteriorProtection = () => {
         </div>
       </section>
 
+      {/* Interactive Process Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Protection Process</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Click on each step to learn more about our comprehensive interior protection process.
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            {process.map((item) => (
+              <Card key={item.step} className="bg-white border-0 shadow-lg transition-all duration-300 hover:shadow-xl">
+                <CardContent className="p-0">
+                  <button
+                    onClick={() => toggleStep(item.step)}
+                    className="w-full p-8 text-left focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-6">
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 bg-red-900 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            {item.step}
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.description}</p>
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0">
+                        {activeStep === item.step ? (
+                          <ChevronUp className="h-6 w-6 text-red-600" />
+                        ) : (
+                          <ChevronDown className="h-6 w-6 text-gray-400" />
+                        )}
+                      </div>
+                    </div>
+                  </button>
+                  {activeStep === item.step && (
+                    <div className="px-8 pb-8 pt-0">
+                      <div className="bg-red-50 rounded-lg p-6 ml-18">
+                        <p className="text-gray-700 leading-relaxed">{item.details}</p>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Booking CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-900 to-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Protect Your Investment Today</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
             Don't wait for damage to occur. Book your Premium Interior Protection service now 
             and enjoy years of worry-free driving.
           </p>
@@ -137,7 +230,7 @@ const PremiumInteriorProtection = () => {
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
               <a href="tel:555-123-7446">Call (555) 123-SHINE</a>
             </Button>
           </div>
