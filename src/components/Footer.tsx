@@ -1,13 +1,10 @@
 
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const handleLocationClick = () => {
-    const address = "A57 Tarakarama Nagar, Film Nagar, Hyderabad, Sindh 500033";
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
+    window.open('https://maps.app.goo.gl/94ufcdfk7TtFSomw8', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -154,4 +151,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
