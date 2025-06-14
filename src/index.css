@@ -115,6 +115,15 @@
   }
 }
 
+/* Modern gradient backgrounds */
+.gradient-bg-red {
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
+}
+
+.gradient-bg-dark {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+}
+
 /* Custom animations */
 @keyframes fade-in {
   from {
@@ -131,6 +140,20 @@
   animation: fade-in 0.8s ease-out forwards;
 }
 
+/* Modern floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 /* Smooth hover effects */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -141,13 +164,13 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Gradient text animations */
-.gradient-text {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #dc2626, #ef4444);
+/* Modern gradient text */
+.gradient-text-red {
+  background: linear-gradient(-45deg, #dc2626, #ef4444, #f87171, #fca5a5);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 15s ease infinite;
+  animation: gradient-shift 8s ease infinite;
 }
 
 @keyframes gradient-shift {
@@ -184,6 +207,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #b91c1c 0%, #991b1b 100%);
+}
+
+/* Modern glassmorphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* 8px spacing system */

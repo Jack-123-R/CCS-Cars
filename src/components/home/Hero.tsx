@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Star, Shield, Award, ArrowRight, Play } from 'lucide-react';
+import { Star, Shield, Award, ArrowRight, Play, Sparkles, Zap } from 'lucide-react';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -37,64 +37,79 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden flex items-center">
-      {/* Animated Background */}
+    <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white overflow-hidden flex items-center">
+      {/* Modern Geometric Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-orange-400/20 rounded-full blur-xl animate-pulse delay-2000"></div>
+        {/* Modern Floating Shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-red-500/20 to-red-600/10 rounded-3xl blur-xl animate-float"></div>
+        <div className="absolute bottom-40 right-10 w-24 h-24 bg-gradient-to-br from-red-400/30 to-orange-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-gradient-to-br from-white/10 to-gray-400/10 rounded-2xl blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="w-full h-full" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className={`space-y-8 transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-            {/* Rating Badge */}
+            
+            {/* Modern Rating Badge */}
             <div className="flex items-center space-x-2 group">
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className="h-4 w-4 fill-yellow-400 text-yellow-400 group-hover:scale-110 transition-transform duration-300" 
-                    style={{ animationDelay: `${i * 100}ms` }}
-                  />
-                ))}
-                <span className="text-yellow-400 font-medium ml-2">4.9/5 • 500+ Reviews</span>
+              <div className="glass-effect rounded-full px-6 py-3 border border-white/20 hover:border-red-400/50 transition-all duration-300">
+                <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className="h-4 w-4 fill-red-400 text-red-400 group-hover:scale-110 transition-transform duration-300" 
+                        style={{ animationDelay: `${i * 100}ms` }}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-white font-semibold">4.9/5</span>
+                  <div className="w-px h-4 bg-white/30"></div>
+                  <span className="text-white/80 text-sm">500+ Reviews</span>
+                </div>
               </div>
             </div>
             
-            {/* Main Heading */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+            {/* Modern Heading */}
+            <div className="space-y-6">
+              <h1 className="text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight">
                 <span className="block opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-                  Transform Your Car
+                  <span className="text-white">Premium</span>
                 </span>
                 <span className="block opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
-                  Into A
+                  <span className="gradient-text-red">Auto Detailing</span>
                 </span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 opacity-0 animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
-                  Showroom Masterpiece
+                <span className="block text-white/80 text-2xl lg:text-3xl font-normal mt-4 opacity-0 animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
+                  Redefined for Excellence
                 </span>
               </h1>
             </div>
             
-            {/* Description */}
-            <p className={`text-xl text-blue-100 leading-relaxed max-w-2xl transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              Professional auto detailing services that bring out the best in every vehicle. 
-              From interior deep cleans to paint correction, we make cars shine like new.
+            {/* Modern Description */}
+            <p className={`text-xl text-gray-300 leading-relaxed max-w-xl transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              Experience the future of automotive care with our precision detailing services. 
+              Where cutting-edge techniques meet uncompromising quality.
             </p>
             
-            {/* CTA Buttons */}
+            {/* Modern CTA Buttons */}
             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
               <Button 
                 onClick={() => scrollToSection('contact')}
                 size="lg" 
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300 group"
+                className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white px-8 py-6 text-lg font-bold transform hover:scale-105 transition-all duration-300 group rounded-xl shadow-2xl hover:shadow-red-500/25"
               >
-                <span>Book Your Service</span>
+                <Sparkles className="h-5 w-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                <span>Book Premium Service</span>
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               
@@ -102,67 +117,97 @@ const Hero = () => {
                 onClick={() => scrollToSection('services')}
                 variant="outline" 
                 size="lg" 
-                className="border-2 border-white/80 bg-white/10 text-white hover:bg-white hover:text-blue-900 hover:border-white px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
+                className="border-2 border-white/30 bg-white/5 text-white hover:bg-white hover:text-black hover:border-white px-8 py-6 text-lg font-semibold transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm rounded-xl"
               >
                 <Play className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                <span>View Services</span>
+                <span>Explore Services</span>
               </Button>
             </div>
             
-            {/* Trust Indicators */}
-            <div className={`flex items-center space-x-8 pt-4 transition-all duration-1000 delay-1100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              <div className="flex items-center space-x-2 group">
-                <Shield className="h-6 w-6 text-green-400 group-hover:scale-110 transition-transform duration-300" />
-                <span className="font-medium">Fully Insured</span>
+            {/* Modern Trust Indicators */}
+            <div className={`grid grid-cols-2 gap-6 pt-8 transition-all duration-1000 delay-1100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              <div className="glass-effect rounded-2xl p-4 group hover:bg-white/10 transition-all duration-300">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">Fully Insured</p>
+                    <p className="text-sm text-gray-400">Protected Service</p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-2 group">
-                <Award className="h-6 w-6 text-yellow-400 group-hover:scale-110 transition-transform duration-300" />
-                <span className="font-medium">20+ Years Experience</span>
+              
+              <div className="glass-effect rounded-2xl p-4 group hover:bg-white/10 transition-all duration-300">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Award className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">20+ Years</p>
+                    <p className="text-sm text-gray-400">Expert Experience</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
-          {/* Hero Image Section */}
+          {/* Modern Hero Image Section */}
           <div className={`relative transition-all duration-1000 delay-500 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}>
-            <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 transform hover:scale-105 transition-all duration-500">
-              <div className="relative overflow-hidden rounded-2xl">
-                {heroImages.map((image, index) => (
-                  <img 
-                    key={index}
-                    src={image} 
-                    alt="Professional car detailing"
-                    className={`w-full h-80 object-cover transition-all duration-1000 ${
-                      index === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110 absolute inset-0'
-                    }`}
-                  />
-                ))}
-                
-                {/* Image Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div className="relative">
+              {/* Main Image Container */}
+              <div className="relative glass-effect rounded-3xl p-6 transform hover:scale-105 transition-all duration-500">
+                <div className="relative overflow-hidden rounded-2xl">
+                  {heroImages.map((image, index) => (
+                    <img 
+                      key={index}
+                      src={image} 
+                      alt="Premium car detailing"
+                      className={`w-full h-96 object-cover transition-all duration-1000 ${
+                        index === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110 absolute inset-0'
+                      }`}
+                    />
+                  ))}
+                  
+                  {/* Modern Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                </div>
               </div>
               
-              {/* Floating Stats */}
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-300 group">
-                <p className="font-bold text-2xl group-hover:text-3xl transition-all duration-300">50,000+</p>
-                <p className="text-sm opacity-90">Cars Detailed</p>
+              {/* Floating Stats Cards */}
+              <div className="absolute -bottom-6 -right-6 glass-effect text-white p-6 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-300 group border border-white/20">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-2xl text-white group-hover:text-3xl transition-all duration-300">50K+</p>
+                    <p className="text-sm text-gray-300">Cars Detailed</p>
+                  </div>
+                </div>
               </div>
               
-              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-xl shadow-xl transform hover:scale-110 transition-all duration-300 group">
-                <p className="font-bold text-lg group-hover:text-xl transition-all duration-300">4.9★</p>
-                <p className="text-xs opacity-90">Rating</p>
+              <div className="absolute -top-6 -left-6 glass-effect text-white p-4 rounded-xl shadow-xl transform hover:scale-110 transition-all duration-300 group border border-white/20">
+                <div className="flex items-center space-x-2">
+                  <Star className="h-5 w-5 fill-red-400 text-red-400" />
+                  <div>
+                    <p className="font-bold text-lg text-white group-hover:text-xl transition-all duration-300">4.9</p>
+                    <p className="text-xs text-gray-300">Premium Rating</p>
+                  </div>
+                </div>
               </div>
             </div>
             
-            {/* Image Indicators */}
-            <div className="flex justify-center space-x-2 mt-6">
+            {/* Modern Image Indicators */}
+            <div className="flex justify-center space-x-3 mt-8">
               {heroImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentImageIndex 
-                      ? 'bg-white scale-125' 
-                      : 'bg-white/40 hover:bg-white/60'
+                      ? 'bg-red-500 scale-125 shadow-lg' 
+                      : 'bg-white/30 hover:bg-white/60'
                   }`}
                 />
               ))}
@@ -171,13 +216,16 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Modern Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button 
           onClick={() => scrollToSection('services')}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center hover:border-white transition-colors duration-300"
+          className="group flex flex-col items-center space-y-2 hover:scale-110 transition-all duration-300"
         >
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center group-hover:border-red-400 transition-colors duration-300">
+            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse group-hover:bg-red-400"></div>
+          </div>
+          <span className="text-xs text-white/60 font-medium">Scroll</span>
         </button>
       </div>
     </section>
