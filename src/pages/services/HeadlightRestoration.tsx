@@ -3,8 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Eye } from 'lucide-react';
+import { useState } from 'react';
 
 const HeadlightRestoration = () => {
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
+
   const included = [
     "Thorough headlight condition assessment",
     "Progressive wet sanding to remove oxidation",
@@ -49,10 +52,17 @@ const HeadlightRestoration = () => {
               </Button>
             </div>
             <div className="relative">
+              {!heroImageLoaded && (
+                <div className="absolute inset-0 bg-blue-800 animate-pulse rounded-lg" />
+              )}
               <img 
                 src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=600&q=80" 
                 alt="Headlight restoration service"
-                className="rounded-lg shadow-2xl"
+                className={`rounded-lg shadow-2xl transition-opacity duration-300 ${
+                  heroImageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                loading="eager"
+                onLoad={() => setHeroImageLoaded(true)}
               />
             </div>
           </div>

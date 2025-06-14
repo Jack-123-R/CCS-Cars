@@ -1,14 +1,22 @@
 
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Hero from '@/components/home/Hero';
-import ServicesOverview from '@/components/home/ServicesOverview';
-import WhyChooseUs from '@/components/home/WhyChooseUs';
-import InstagramSection from '@/components/home/InstagramSection';
-import Testimonials from '@/components/home/Testimonials';
-import QuickContact from '@/components/home/QuickContact';
-import AboutSummary from '@/components/home/AboutSummary';
-import GalleryShowcase from '@/components/home/GalleryShowcase';
 import AnimatedSection from '@/components/AnimatedSection';
+import LazySection from '@/components/LazySection';
+
+// Lazy load heavy components
+const ServicesOverview = lazy(() => import('@/components/home/ServicesOverview'));
+const WhyChooseUs = lazy(() => import('@/components/home/WhyChooseUs'));
+const InstagramSection = lazy(() => import('@/components/home/InstagramSection'));
+const Testimonials = lazy(() => import('@/components/home/Testimonials'));
+const QuickContact = lazy(() => import('@/components/home/QuickContact'));
+const AboutSummary = lazy(() => import('@/components/home/AboutSummary'));
+const GalleryShowcase = lazy(() => import('@/components/home/GalleryShowcase'));
+
+// Loading component
+const SectionLoader = () => (
+  <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+);
 
 const Index = () => {
   useEffect(() => {
@@ -29,45 +37,73 @@ const Index = () => {
       </section>
       
       <section id="services">
-        <AnimatedSection>
-          <ServicesOverview />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <ServicesOverview />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
       
       <section id="why-choose-us">
-        <AnimatedSection>
-          <WhyChooseUs />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <WhyChooseUs />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
       
       <section id="about">
-        <AnimatedSection>
-          <AboutSummary />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <AboutSummary />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
       
       <section id="gallery">
-        <AnimatedSection>
-          <GalleryShowcase />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <GalleryShowcase />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
       
       <section id="instagram">
-        <AnimatedSection>
-          <InstagramSection />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <InstagramSection />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
       
       <section id="testimonials">
-        <AnimatedSection>
-          <Testimonials />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <Testimonials />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
       
       <section id="contact">
-        <AnimatedSection>
-          <QuickContact />
-        </AnimatedSection>
+        <LazySection>
+          <AnimatedSection>
+            <Suspense fallback={<SectionLoader />}>
+              <QuickContact />
+            </Suspense>
+          </AnimatedSection>
+        </LazySection>
       </section>
     </div>
   );

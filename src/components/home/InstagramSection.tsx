@@ -1,6 +1,80 @@
 
 import { Button } from '@/components/ui/button';
 import { Instagram, Play, Heart, MessageCircle, Share } from 'lucide-react';
+import { useState, useCallback, memo } from 'react';
+
+// Memoized individual reel component for better performance
+const InstagramReel = memo(({ reel, onClick }: { 
+  reel: { 
+    id: number; 
+    image: string; 
+    videoUrl: string; 
+    caption: string; 
+    likes: number; 
+    comments: number; 
+    isVideo: boolean; 
+  }, 
+  onClick: (url: string) => void 
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <div 
+      className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[9/16] bg-gray-200"
+      onClick={() => onClick(reel.videoUrl)}
+    >
+      <img 
+        src={reel.image} 
+        alt={reel.caption}
+        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+          imageLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading="lazy"
+        onLoad={() => setImageLoaded(true)}
+      />
+      
+      {/* Loading placeholder */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-gray-300 animate-pulse" />
+      )}
+
+      {/* Play button overlay */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 group-hover:scale-110 transition-transform duration-300">
+          <Play className="h-8 w-8 text-white fill-white" />
+        </div>
+      </div>
+
+      {/* Instagram reel indicators */}
+      <div className="absolute top-3 right-3">
+        <div className="bg-black/50 rounded-full p-1">
+          <Instagram className="h-4 w-4 text-white" />
+        </div>
+      </div>
+
+      {/* Engagement stats */}
+      <div className="absolute bottom-3 right-3 flex flex-col items-center space-y-2">
+        <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
+          <Heart className="h-3 w-3 text-white" />
+          <span className="text-white text-xs font-medium">{reel.likes.toLocaleString()}</span>
+        </div>
+        <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
+          <MessageCircle className="h-3 w-3 text-white" />
+          <span className="text-white text-xs font-medium">{reel.comments}</span>
+        </div>
+      </div>
+
+      {/* Hover overlay with caption */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-3 left-3 right-16">
+          <p className="text-white text-xs leading-tight line-clamp-3">{reel.caption}</p>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+InstagramReel.displayName = 'InstagramReel';
 
 const InstagramSection = () => {
   const reels = [
@@ -60,9 +134,9 @@ const InstagramSection = () => {
     }
   ];
 
-  const handleReelClick = (videoUrl: string) => {
+  const handleReelClick = useCallback((videoUrl: string) => {
     window.open(videoUrl, '_blank', 'noopener,noreferrer');
-  };
+  }, []);
 
   return (
     <section className="py-20 bg-white">
@@ -85,50 +159,11 @@ const InstagramSection = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
           {reels.map((reel) => (
-            <div 
+            <InstagramReel 
               key={reel.id} 
-              className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[9/16] bg-black"
-              onClick={() => handleReelClick(reel.videoUrl)}
-            >
-              <img 
-                src={reel.image} 
-                alt={reel.caption}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              
-              {/* Play button overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 group-hover:scale-110 transition-transform duration-300">
-                  <Play className="h-8 w-8 text-white fill-white" />
-                </div>
-              </div>
-
-              {/* Instagram reel indicators */}
-              <div className="absolute top-3 right-3">
-                <div className="bg-black/50 rounded-full p-1">
-                  <Instagram className="h-4 w-4 text-white" />
-                </div>
-              </div>
-
-              {/* Engagement stats */}
-              <div className="absolute bottom-3 right-3 flex flex-col items-center space-y-2">
-                <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
-                  <Heart className="h-3 w-3 text-white" />
-                  <span className="text-white text-xs font-medium">{reel.likes.toLocaleString()}</span>
-                </div>
-                <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
-                  <MessageCircle className="h-3 w-3 text-white" />
-                  <span className="text-white text-xs font-medium">{reel.comments}</span>
-                </div>
-              </div>
-
-              {/* Hover overlay with caption */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-3 left-3 right-16">
-                  <p className="text-white text-xs leading-tight line-clamp-3">{reel.caption}</p>
-                </div>
-              </div>
-            </div>
+              reel={reel} 
+              onClick={handleReelClick}
+            />
           ))}
         </div>
 
