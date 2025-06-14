@@ -81,7 +81,7 @@ const InstagramSection = () => {
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/reel/example1",
+      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
       caption: "Paint correction transformation on this beautiful BMW 🚗✨ #PaintCorrection #BMW #CarDetailing",
       likes: 2453,
       comments: 89,
@@ -90,7 +90,7 @@ const InstagramSection = () => {
     {
       id: 2,
       image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/reel/example2",
+      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
       caption: "Ceramic coating application process - watch the magic happen! 💎 #CeramicCoating #CarCare",
       likes: 1892,
       comments: 67,
@@ -99,7 +99,7 @@ const InstagramSection = () => {
     {
       id: 3,
       image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/reel/example3",
+      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
       caption: "Interior detailing before and after - incredible transformation! 🔥 #InteriorDetailing #BeforeAfter",
       likes: 3201,
       comments: 124,
@@ -108,7 +108,7 @@ const InstagramSection = () => {
     {
       id: 4,
       image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/reel/example4",
+      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
       caption: "Engine bay cleaning transformation - from dirty to spotless! 🧽 #EngineBay #Detailing",
       likes: 1567,
       comments: 43,
@@ -117,7 +117,7 @@ const InstagramSection = () => {
     {
       id: 5,
       image: "https://images.unsplash.com/photo-1555353540-38b469e74d6b?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/reel/example5",
+      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
       caption: "Mobile detailing service in action - we come to you! 🚐 #MobileDetailing #Convenience",
       likes: 2789,
       comments: 91,
@@ -126,7 +126,7 @@ const InstagramSection = () => {
     {
       id: 6,
       image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
-      videoUrl: "https://www.instagram.com/reel/example6",
+      videoUrl: "https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D",
       caption: "Luxury vehicle complete detail - perfection in every detail! 💯 #LuxuryCars #Premium",
       likes: 4123,
       comments: 156,
@@ -147,12 +147,12 @@ const InstagramSection = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Get an inside look at our detailing process, amazing transformations, and behind-the-scenes content. 
-            Follow us @ccscarshine for daily automotive inspiration and tips.
+            Follow us @ccshyderabad for daily automotive inspiration and tips.
           </p>
           <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
-            <a href="https://instagram.com/ccscarshine" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+            <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
               <Instagram className="h-5 w-5" />
-              <span>Follow @ccscarshine</span>
+              <span>Follow @ccshyderabad</span>
             </a>
           </Button>
         </div>
@@ -172,13 +172,13 @@ const InstagramSection = () => {
           <p className="text-gray-600 mb-4">Want to see more transformations and behind-the-scenes content?</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600">
-              <a href="https://instagram.com/ccscarshine" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+              <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
                 <Instagram className="h-4 w-4" />
                 <span>Follow for More</span>
               </a>
             </Button>
             <Button asChild variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
-              <a href="https://instagram.com/ccscarshine/reels" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+              <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
                 <Play className="h-4 w-4" />
                 <span>View All Reels</span>
               </a>
