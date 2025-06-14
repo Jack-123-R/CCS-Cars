@@ -1,73 +1,43 @@
 
 import { Button } from '@/components/ui/button';
-import { Instagram, Play } from 'lucide-react';
-import { useCallback, memo } from 'react';
-
-// Card for a single Instagram Reel link
-const InstagramReel = memo((
-  { reel, onClick }: { 
-    reel: { 
-      id: number; 
-      url: string;
-    }, 
-    onClick: (url: string) => void 
-  }
-) => (
-  <div
-    className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[9/16] bg-gradient-to-br from-pink-500 to-purple-700 flex items-center justify-center"
-    onClick={() => onClick(reel.url)}
-    tabIndex={0}
-    role="button"
-    aria-label="Open Instagram Reel"
-  >
-    {/* Center: Play Button & Instagram icon */}
-    <div className="flex flex-col items-center">
-      <div className="rounded-full bg-white/70 backdrop-blur-sm p-4 mb-3 group-hover:scale-110 transition-transform">
-        <Play className="h-10 w-10 text-pink-600 drop-shadow-md" />
-      </div>
-      <Instagram className="h-8 w-8 text-white mb-2" />
-      <span className="text-white text-xs font-semibold px-2 py-1 bg-black/40 rounded">
-        Watch Reel
-      </span>
-    </div>
-    {/* Hover effect */}
-    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity" />
-  </div>
-));
-InstagramReel.displayName = 'InstagramReel';
+import { Instagram } from 'lucide-react';
+import ReelPlayer from './ReelPlayer';
 
 const INSTAGRAM_REELS = [
+  // Replace these with your REAL thumbnail and video URLs
   {
     id: 1,
-    url: "https://www.instagram.com/reel/C7dmUp4P7Gt/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&q=80",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // Placeholder video, replace with real
   },
   {
     id: 2,
-    url: "https://www.instagram.com/reel/C4fZLSBPlYD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    videoUrl: "https://www.w3schools.com/html/movie.mp4",
   },
   {
     id: 3,
-    url: "https://www.instagram.com/reel/C4Pu_Z1vDL6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    thumbnail: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     id: 4,
-    url: "https://www.instagram.com/reel/DE7EicjzgeE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    videoUrl: "https://www.w3schools.com/html/movie.mp4",
   },
   {
     id: 5,
-    url: "https://www.instagram.com/reel/DEAMSdPss6T/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&q=80",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     id: 6,
-    url: "https://www.instagram.com/reel/DCoXp7sz_xc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    videoUrl: "https://www.w3schools.com/html/movie.mp4",
   },
 ];
 
 const InstagramSection = () => {
-  const handleReelClick = useCallback((reelUrl: string) => {
-    window.open(reelUrl, '_blank', 'noopener,noreferrer');
-  }, []);
-
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,12 +62,13 @@ const InstagramSection = () => {
           </Button>
         </div>
         
+        {/* Reels grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
           {INSTAGRAM_REELS.map((reel) => (
-            <InstagramReel
+            <ReelPlayer
               key={reel.id}
-              reel={reel}
-              onClick={handleReelClick}
+              thumbnail={reel.thumbnail}
+              videoUrl={reel.videoUrl}
             />
           ))}
         </div>
@@ -114,7 +85,7 @@ const InstagramSection = () => {
             </Button>
             <Button asChild variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
               <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
-                <Play className="h-4 w-4" />
+                <span className="inline-flex"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
                 <span>View All Reels</span>
               </a>
             </Button>
