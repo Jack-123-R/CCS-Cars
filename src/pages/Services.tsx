@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Sparkles, Shield, Zap, Wrench, Eye, Car, Droplet, Smartphone, CheckCircle } from 'lucide-react';
+import { Sparkles, Shield, Wrench, Eye, Car, Droplet, Smartphone, CheckCircle } from 'lucide-react';
 
 const Services = () => {
   const serviceCategories = [
@@ -35,16 +35,6 @@ const Services = () => {
       title: "Exterior Services",
       description: "Paint correction, protection, and enhancement services",
       services: [
-        {
-          icon: Zap,
-          title: "Premium Wash & Wax",
-          description: "Hand wash, clay bar treatment, and premium wax application for brilliant shine and protection.",
-          price: "Starting at ₹4,000",
-          duration: "1-2 hours",
-          href: "/services/premium-wash-wax", 
-          image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=400&q=80",
-          included: ["Hand wash", "Clay bar treatment", "Premium wax", "Tire shine"]
-        },
         {
           icon: Car,
           title: "Paint Correction & Ceramic Coating",
@@ -108,14 +98,14 @@ const Services = () => {
   const packages = [
     {
       name: "Essential Care",
-      price: "₹11,000",
-      services: ["Premium Wash & Wax", "Interior Vacuum", "Tire Shine", "Window Cleaning"],
+      price: "₹8,500",
+      services: ["Interior Deep Clean", "Exterior Wash", "Tire Shine", "Window Cleaning"],
       popular: false
     },
     {
       name: "Complete Detail",
-      price: "₹21,000", 
-      services: ["Interior Deep Clean", "Premium Wash & Wax", "Clay Bar", "Leather Conditioning"],
+      price: "₹18,000", 
+      services: ["Interior Deep Clean", "Paint Correction", "Ceramic Protection", "Engine Bay Detail"],
       popular: true
     },
     {

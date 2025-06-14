@@ -12,7 +12,6 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import InteriorDeepClean from "./pages/services/InteriorDeepClean";
 import PremiumInteriorProtection from "./pages/services/PremiumInteriorProtection";
-import PremiumWashWax from "./pages/services/PremiumWashWax";
 import PaintCorrectionCeramic from "./pages/services/PaintCorrectionCeramic";
 import EngineBayDetailing from "./pages/services/EngineBayDetailing";
 import HeadlightRestoration from "./pages/services/HeadlightRestoration";
@@ -38,7 +37,6 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/services/interior-deep-clean" element={<InteriorDeepClean />} />
               <Route path="/services/premium-interior-protection" element={<PremiumInteriorProtection />} />
-              <Route path="/services/premium-wash-wax" element={<PremiumWashWax />} />
               <Route path="/services/paint-correction-ceramic" element={<PaintCorrectionCeramic />} />
               <Route path="/services/engine-bay-detailing" element={<EngineBayDetailing />} />
               <Route path="/services/headlight-restoration" element={<HeadlightRestoration />} />

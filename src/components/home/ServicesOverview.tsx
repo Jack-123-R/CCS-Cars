@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Sparkles, Shield, Zap, Lightbulb } from 'lucide-react';
+import { Sparkles, Shield, Car, Lightbulb } from 'lucide-react';
 
 const ServicesOverview = () => {
   const services = [
@@ -10,7 +10,7 @@ const ServicesOverview = () => {
       icon: Sparkles,
       title: "Interior Deep Clean",
       description: "Complete interior transformation with steam cleaning, leather conditioning, and fabric protection.",
-      price: "Starting at ₹2,999",
+      price: "Starting at ₹7,500",
       href: "/services/interior-deep-clean",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80"
     },
@@ -18,23 +18,23 @@ const ServicesOverview = () => {
       icon: Shield,
       title: "Paint Correction & Ceramic Coating",
       description: "Multi-stage paint correction followed by premium ceramic coating for long-lasting protection.",
-      price: "Starting at ₹15,999",
+      price: "Starting at ₹42,000",
       href: "/services/paint-correction-ceramic",
       image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80"
     },
     {
-      icon: Zap,
-      title: "Premium Wash & Wax",
-      description: "Hand wash, clay bar treatment, and premium wax application for a brilliant shine.",
-      price: "Starting at ₹1,599",
-      href: "/services/premium-wash-wax",
-      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=400&q=80"
+      icon: Car,
+      title: "Premium Interior Protection",
+      description: "Advanced protection for leather, fabric, and trim with long-lasting coating applications.",
+      price: "Starting at ₹12,500",
+      href: "/services/premium-interior-protection",
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
     },
     {
       icon: Lightbulb,
       title: "Car Lights Service",
       description: "Professional headlight restoration, LED upgrades, and complete lighting system maintenance.",
-      price: "Starting at ₹2,499",
+      price: "Starting at ₹7,500",
       href: "/services/mobile-detailing",
       image: "https://images.unsplash.com/photo-1555353540-38b469e74d6b?auto=format&fit=crop&w=400&q=80"
     }

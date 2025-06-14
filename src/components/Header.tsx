@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -44,7 +43,6 @@ const Header = () => {
         { name: 'View All Services', href: '/services' },
         { name: 'Interior Deep Clean', href: '/services/interior-deep-clean' },
         { name: 'Premium Interior Protection', href: '/services/premium-interior-protection' },
-        { name: 'Premium Wash & Wax', href: '/services/premium-wash-wax' },
         { name: 'Paint Correction & Ceramic Coating', href: '/services/paint-correction-ceramic' },
         { name: 'Engine Bay Detailing', href: '/services/engine-bay-detailing' },
         { name: 'Headlight Restoration', href: '/services/headlight-restoration' },
