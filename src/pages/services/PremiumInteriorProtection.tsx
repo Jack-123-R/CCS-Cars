@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -7,6 +6,13 @@ import { useState } from 'react';
 
 const PremiumInteriorProtection = () => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const included = [
     "Complete interior assessment and preparation",
@@ -77,7 +83,7 @@ const PremiumInteriorProtection = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen cursor-pointer" onClick={scrollToTop}>
       {/* Service Hero */}
       <section className="bg-gradient-to-br from-red-900 to-red-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -177,7 +183,10 @@ const PremiumInteriorProtection = () => {
               <Card key={item.step} className="bg-white border-0 shadow-lg transition-all duration-300 hover:shadow-xl">
                 <CardContent className="p-0">
                   <button
-                    onClick={() => toggleStep(item.step)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleStep(item.step);
+                    }}
                     className="w-full p-8 text-left focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
                   >
                     <div className="flex items-center justify-between">
