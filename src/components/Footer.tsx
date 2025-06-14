@@ -1,6 +1,5 @@
-
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -27,14 +26,11 @@ const Footer = () => {
               Quality, precision, and customer satisfaction guaranteed.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 transition-colors">
+              <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 transition-colors">
                 <Youtube className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
