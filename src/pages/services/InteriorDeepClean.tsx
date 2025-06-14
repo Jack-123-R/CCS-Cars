@@ -1,7 +1,8 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Star, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle, Clock, IndianRupee, Shield, ArrowRight, Star, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const InteriorDeepClean = () => {
@@ -117,7 +118,7 @@ const InteriorDeepClean = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center space-x-2">
-                  <DollarSign className="h-5 w-5" />
+                  <IndianRupee className="h-5 w-5" />
                   <span className="font-semibold">Starting at ₹7,500</span>
                 </div>
                 <div className="flex items-center space-x-2">
