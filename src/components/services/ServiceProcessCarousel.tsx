@@ -65,18 +65,18 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
   }, [steps.length, isInView]);
 
   return (
-    <section ref={sectionRef} className={`py-20 ${bg}`} style={{ minHeight: '300vh' }}>
+    <section ref={sectionRef} className={`py-20 ${bg}`} style={{ minHeight: '250vh' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 sticky top-20 z-10">
+        {/* Header - Increased top spacing */}
+        <div className="text-center mb-20 sticky top-24 z-10 bg-gradient-to-b from-gray-50 to-transparent py-6">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">{title}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
         </div>
         
         {/* Main Content Area */}
         <div className="relative">
-          {/* Fixed Content Display */}
-          <div className="sticky top-40 z-20">
+          {/* Fixed Content Display - Increased top spacing */}
+          <div className="sticky top-48 z-20">
             <div className="max-w-4xl mx-auto">
               <Card className="bg-white border-0 shadow-xl overflow-hidden">
                 <CardContent className="p-0">
@@ -122,9 +122,9 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
             </div>
           </div>
 
-          {/* Progress Indicators */}
-          <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-30">
-            <div className="flex flex-col space-y-4">
+          {/* Progress Indicators - Moved to avoid overlap with other fixed elements */}
+          <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-30">
+            <div className="flex flex-col space-y-3 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg">
               {steps.map((_, index) => (
                 <div
                   key={index}
@@ -136,8 +136,8 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
             </div>
           </div>
 
-          {/* Invisible spacer to create scroll distance */}
-          <div style={{ height: '200vh' }} />
+          {/* Invisible spacer to create scroll distance - Reduced height */}
+          <div style={{ height: '150vh' }} />
         </div>
       </div>
     </section>
