@@ -1,12 +1,12 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowDown } from "lucide-react";
 
 export interface ProcessStep {
   step: number;
   title: string;
   description: string;
   details: string;
+  image?: string;
 }
 
 interface ServiceProcessAccordionProps {
@@ -25,37 +25,49 @@ export function ServiceProcessAccordion({ title, subtitle, process, bg = "bg-whi
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
         </div>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {process.map((item, index) => (
-            <div key={item.step} className="relative">
-              <Card className="bg-white border-0 shadow-lg mb-8">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-red-900 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
+            <Card key={item.step} className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+              <CardContent className="p-0">
+                {/* Image Section */}
+                <div className="relative h-48 bg-gradient-to-br from-red-100 to-red-200 overflow-hidden">
+                  {item.image ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                      <div className="text-white text-6xl font-bold opacity-30">
                         {item.step}
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                      <p className="text-gray-600 mb-4 text-lg leading-relaxed">{item.description}</p>
-                      <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
-                        <p className="text-gray-700 leading-relaxed">{item.details}</p>
-                      </div>
+                  )}
+                  {/* Step Number Overlay */}
+                  <div className="absolute top-4 left-4">
+                    <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-red-600 font-bold text-lg">{item.step}</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-              
-              {/* Arrow connector between steps */}
-              {index < process.length - 1 && (
-                <div className="flex justify-center mb-8">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <ArrowDown className="h-6 w-6 text-red-600" />
+                </div>
+                
+                {/* Content Section */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {item.description}
+                  </p>
+                  <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-red-500">
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {item.details}
+                    </p>
                   </div>
                 </div>
-              )}
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
