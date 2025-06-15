@@ -6,7 +6,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselApi,
 } from "@/components/ui/carousel";
+import { useEffect, useState, useRef } from "react";
 
 export interface ProcessStep {
   step: number;
@@ -23,8 +25,69 @@ interface ServiceProcessCarouselProps {
 }
 
 export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white" }: ServiceProcessCarouselProps) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !api || !isInView) return;
+
+      const section = sectionRef.current;
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+      const windowHeight = window.innerHeight;
+
+      // Check if section is in viewport
+      if (sectionTop <= windowHeight && sectionTop + sectionHeight >= 0) {
+        // Calculate scroll progress within the section
+        const scrollProgress = Math.max(0, Math.min(1, (windowHeight / 2 - sectionTop) / (sectionHeight / 2)));
+        
+        // Calculate which step should be active based on scroll progress
+        const stepIndex = Math.floor(scrollProgress * steps.length);
+        const clampedIndex = Math.max(0, Math.min(steps.length - 1, stepIndex));
+        
+        // Only update if the index has changed
+        if (clampedIndex !== current) {
+          api.scrollTo(clampedIndex);
+        }
+      }
+    };
+
+    // Intersection Observer to detect when section is in view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, [api, current, steps.length, isInView]);
+
   return (
-    <section className={`py-20 ${bg}`}>
+    <section ref={sectionRef} className={`py-20 ${bg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">{title}</h2>
@@ -32,7 +95,7 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <Carousel className="w-full">
+          <Carousel className="w-full" setApi={setApi}>
             <CarouselContent>
               {steps.map((step) => (
                 <CarouselItem key={step.step}>
@@ -89,8 +152,8 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
             {steps.map((_, index) => (
               <div
                 key={index}
-                className={`w-3 h-3 rounded-full ${
-                  index === 0 ? 'bg-red-500' : 'bg-gray-300'
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  index === current ? 'bg-red-500' : 'bg-gray-300'
                 }`}
               />
             ))}
