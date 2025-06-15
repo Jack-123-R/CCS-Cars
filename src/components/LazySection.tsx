@@ -9,7 +9,6 @@ interface LazySectionProps {
 
 const LazySection = ({ children, className = '', threshold = 0.1 }: LazySectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,24 +16,34 @@ const LazySection = ({ children, className = '', threshold = 0.1 }: LazySectionP
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          setHasBeenVisible(true);
-          observer.disconnect();
+          observer.disconnect(); // Immediately disconnect after first intersection
         }
       },
-      { threshold }
+      { 
+        threshold,
+        rootMargin: '50px' // Load content slightly before it comes into view
+      }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      observer.disconnect();
+    };
   }, [threshold]);
 
   return (
     <div ref={ref} className={className}>
-      {(isVisible || hasBeenVisible) ? children : (
-        <div className="h-96 bg-gray-100 animate-pulse" />
+      {isVisible ? children : (
+        <div className="h-64 bg-gray-50 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-gray-300 border-t-red-500 rounded-full animate-spin" />
+        </div>
       )}
     </div>
   );

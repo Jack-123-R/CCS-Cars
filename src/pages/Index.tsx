@@ -4,40 +4,50 @@ import Hero from '@/components/home/Hero';
 import AnimatedSection from '@/components/AnimatedSection';
 import LazySection from '@/components/LazySection';
 
-// Lazy load heavy components
+// Lazy load heavy components with better chunking
 const ServicesOverview = lazy(() => import('@/components/home/ServicesOverview'));
 const WhyChooseUs = lazy(() => import('@/components/home/WhyChooseUs'));
+const AboutSummary = lazy(() => import('@/components/home/AboutSummary'));
+const GalleryShowcase = lazy(() => import('@/components/home/GalleryShowcase'));
 const InstagramSection = lazy(() => import('@/components/home/InstagramSection'));
 const Testimonials = lazy(() => import('@/components/home/Testimonials'));
 const QuickContact = lazy(() => import('@/components/home/QuickContact'));
-const AboutSummary = lazy(() => import('@/components/home/AboutSummary'));
-const GalleryShowcase = lazy(() => import('@/components/home/GalleryShowcase'));
 
-// Loading component
+// Lightweight loading component
 const SectionLoader = () => (
-  <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+  <div className="h-64 bg-gray-50 animate-pulse flex items-center justify-center mx-4 rounded-lg">
+    <div className="w-6 h-6 border-2 border-gray-300 border-t-red-500 rounded-full animate-spin" />
+  </div>
 );
 
 const Index = () => {
   useEffect(() => {
-    // Smooth scrolling behavior
+    // Optimize scrolling performance
     document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Preload critical resources
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'image';
+    preloadLink.href = 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80';
+    document.head.appendChild(preloadLink);
     
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
+      if (preloadLink.parentNode) {
+        preloadLink.parentNode.removeChild(preloadLink);
+      }
     };
   }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden">
       <section id="home">
-        <AnimatedSection>
-          <Hero />
-        </AnimatedSection>
+        <Hero />
       </section>
       
       <section id="services">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <ServicesOverview />
@@ -47,7 +57,7 @@ const Index = () => {
       </section>
       
       <section id="why-choose-us">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <WhyChooseUs />
@@ -57,7 +67,7 @@ const Index = () => {
       </section>
       
       <section id="about">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <AboutSummary />
@@ -67,7 +77,7 @@ const Index = () => {
       </section>
       
       <section id="gallery">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <GalleryShowcase />
@@ -77,7 +87,7 @@ const Index = () => {
       </section>
       
       <section id="instagram">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <InstagramSection />
@@ -87,7 +97,7 @@ const Index = () => {
       </section>
       
       <section id="testimonials">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <Testimonials />
@@ -97,7 +107,7 @@ const Index = () => {
       </section>
       
       <section id="contact">
-        <LazySection>
+        <LazySection threshold={0.2}>
           <AnimatedSection>
             <Suspense fallback={<SectionLoader />}>
               <QuickContact />
