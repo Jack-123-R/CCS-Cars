@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, IndianRupee, Shield, ArrowRight, Star } from 'lucide-react';
-import { HorizontalProcessTimeline, TimelineStep } from '@/components/services/HorizontalProcessTimeline';
+import { ServiceProcessCarousel, ProcessStep } from '@/components/services/ServiceProcessCarousel';
 
 const InteriorDeepClean = () => {
   const included = [
@@ -18,31 +18,36 @@ const InteriorDeepClean = () => {
     "Interior glass cleaning for crystal clarity"
   ];
 
-  const timelineSteps: TimelineStep[] = [
+  const processSteps: ProcessStep[] = [
     {
       step: 1,
       title: "Assessment and Preparation",
-      description: "Thorough inspection of interior condition and removal of all personal items for complete access."
+      description: "Thorough inspection of interior condition and removal of all personal items for complete access to every surface and component.",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
     },
     {
       step: 2,
       title: "Deep Vacuum Process",
-      description: "Complete vacuuming using professional equipment including crevice tools for hard-to-reach areas."
+      description: "Complete vacuuming using professional equipment including specialized crevice tools for hard-to-reach areas and upholstery attachments.",
+      image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
     },
     {
       step: 3,
       title: "Steam Cleaning",
-      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria and deep-set stains."
+      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria, allergens, and deep-set stains for a fresh interior.",
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
     },
     {
       step: 4,
       title: "Leather Treatment",
-      description: "Application of premium conditioners to restore and protect leather surfaces."
+      description: "Application of premium conditioners and protectants to restore, nourish, and protect leather surfaces from cracking and fading.",
+      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=800&q=80"
     },
     {
       step: 5,
       title: "Final Inspection",
-      description: "Comprehensive quality check and customer walkthrough to ensure complete satisfaction."
+      description: "Comprehensive quality check and detailed customer walkthrough to ensure complete satisfaction with every aspect of the service.",
+      image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -154,11 +159,11 @@ const InteriorDeepClean = () => {
         </div>
       </section>
 
-      {/* Process Section using HorizontalProcessTimeline */}
-      <HorizontalProcessTimeline
+      {/* Process Section using ServiceProcessCarousel */}
+      <ServiceProcessCarousel
         title="Our Deep Cleaning Process"
         subtitle="Experience our comprehensive 5-step process designed to transform your vehicle's interior"
-        steps={timelineSteps}
+        steps={processSteps}
         bg="bg-gradient-to-br from-gray-50 to-gray-100"
       />
 
