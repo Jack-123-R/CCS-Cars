@@ -5,7 +5,7 @@ import { ArrowRight, Droplet, Shield, Star, Sun } from 'lucide-react';
 import {
   ServiceHero,
   ServiceIncludedList,
-  ServiceProcessAccordion,
+  ServiceProcessCarousel,
   ServiceBenefits,
   ServiceCTA,
 } from '@/components/services/exports';
@@ -28,36 +28,31 @@ const process = [
     step: 1,
     title: "Complete Interior Assessment",
     description: "Thorough evaluation of all interior surfaces and materials to determine the best protection approach.",
-    details:
-      "We identify different material types including leather, fabric, plastics, and trim pieces to select the appropriate protection products for each surface type.",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 2,
     title: "Deep Cleaning and Preparation",
     description: "Professional cleaning of all surfaces to ensure optimal adhesion of protection products.",
-    details:
-      "Complete interior cleaning removes all contaminants that could interfere with protection product bonding. This includes vacuuming, steam cleaning, and specialized surface preparation.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 3,
     title: "Fabric Protection Application",
     description: "Application of advanced fabric protection coatings to all cloth surfaces including seats and carpets.",
-    details:
-      "Scotchgard or equivalent protection creates an invisible barrier that repels liquids and prevents stains from setting into fabric fibers.",
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 4,
     title: "Leather Conditioning and Protection",
     description: "Specialized treatment for leather surfaces including conditioning and protective coating application.",
-    details:
-      "Premium leather conditioners restore moisture and flexibility while protective coatings provide UV resistance and prevent cracking and fading.",
+    image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 5,
     title: "Final Protection and Quality Check",
     description: "Application of UV protection to dashboard and trim, followed by comprehensive quality inspection.",
-    details:
-      "Final UV protection prevents sun damage and fading. Complete quality check ensures all surfaces are properly protected and ready for years of protection.",
+    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80"
   },
 ];
 
@@ -114,10 +109,11 @@ export default function PremiumInteriorProtection() {
         bg="bg-gray-50"
       />
 
-      <ServiceProcessAccordion
+      <ServiceProcessCarousel
         title="Our Protection Process"
-        subtitle="Click on each step to learn more about our comprehensive interior protection process."
-        process={process}
+        subtitle="Experience our comprehensive 5-step process designed to provide long-lasting interior protection"
+        steps={process}
+        bg="bg-gradient-to-br from-gray-50 to-gray-100"
       />
 
       <ServiceCTA

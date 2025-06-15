@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Clock, Shield, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import { ServiceHero, ServiceIncludedList, ServiceProcessAccordion, ServiceCTA } from "@/components/services/exports";
+import { ServiceHero, ServiceIncludedList, ServiceProcessCarousel, ServiceCTA } from "@/components/services/exports";
 import { useState } from 'react';
 
 // Data
@@ -24,31 +24,31 @@ const process = [
     step: 1,
     title: "Vehicle Assessment and Preparation",
     description: "Thorough inspection of paint condition and precise measurements for custom film cutting.",
-    details: "We analyze your vehicle's specific contours and identify the optimal areas for protection. Paint correction may be recommended if needed before film application."
+    image: "https://images.unsplash.com/photo-1555353540-38b469e74d6b?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 2,
     title: "Precision Film Cutting",
     description: "Computer-controlled cutting of protection film pieces to exact vehicle specifications.",
-    details: "Using advanced plotter technology, we cut each piece of film to perfectly match your vehicle's curves and edges, ensuring seamless coverage."
+    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 3,
     title: "Surface Preparation",
     description: "Meticulous cleaning and preparation of all surfaces to receive the protection film.",
-    details: "Complete decontamination and cleaning ensure perfect adhesion. We use specialized cleaning solutions to remove any residues that could affect film bonding."
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 4,
     title: "Professional Installation",
     description: "Expert application of protection film using professional techniques and tools.",
-    details: "Our certified installers use precise positioning and application techniques to ensure bubble-free installation with perfect edge sealing."
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 5,
     title: "Final Inspection and Curing",
     description: "Quality control inspection and proper curing process for optimal film performance.",
-    details: "Final inspection ensures perfect installation. The film requires 24-48 hours to fully cure and achieve its self-healing properties."
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -78,11 +78,11 @@ export default function PaintProtectionFilm() {
         bg="bg-white"
       />
 
-      <ServiceProcessAccordion
+      <ServiceProcessCarousel
         title="Our Installation Process"
-        subtitle="Click on each step to learn more about our professional paint protection film installation."
-        process={process}
-        bg="bg-gray-50"
+        subtitle="Experience our comprehensive 5-step process designed to provide ultimate paint protection"
+        steps={process}
+        bg="bg-gradient-to-br from-gray-50 to-gray-100"
       />
 
       <ServiceCTA

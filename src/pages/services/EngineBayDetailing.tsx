@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, DollarSign, Shield, ArrowRight, Wrench } from 'lucide-react';
-import { ServiceHero, ServiceIncludedList, ServiceProcessAccordion, ServiceCTA } from "@/components/services/exports";
+import { ServiceHero, ServiceIncludedList, ServiceProcessCarousel, ServiceCTA } from "@/components/services/exports";
 import { useState } from 'react';
 
 // Data
@@ -25,31 +25,31 @@ const process = [
     step: 1,
     title: "Assessment and Preparation",
     description: "Thorough inspection of engine bay condition and careful preparation of all electrical components.",
-    details: "We identify all sensitive components and properly protect them before beginning the cleaning process. This includes covering air intakes, electrical connections, and sensitive sensors."
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 2,
     title: "Professional Degreasing",
     description: "Application of industrial-grade degreasers to break down accumulated oil, grease, and grime.",
-    details: "We use biodegradable degreasers that are safe for your engine while being tough on built-up contaminants. Different products are used for different materials and contamination levels."
+    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 3,
     title: "Steam Cleaning Process",
     description: "High-temperature steam cleaning to safely remove all loosened contaminants without water damage.",
-    details: "Our steam cleaning method provides thorough cleaning while minimizing water exposure to electrical components. The high temperature kills bacteria and removes stubborn residues."
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 4,
     title: "Component Restoration",
     description: "Detailed cleaning and conditioning of belts, hoses, and plastic components to restore their appearance.",
-    details: "We use specialized products to restore the original color and flexibility of rubber components while protecting them from future deterioration."
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 5,
     title: "Professional Finishing",
     description: "Application of appropriate dressings and protectants to give your engine bay a showroom appearance.",
-    details: "Final dressing application provides UV protection and enhances the appearance of all surfaces while maintaining the appropriate finish for each component type."
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -79,11 +79,11 @@ export default function EngineBayDetailing() {
         bg="bg-white"
       />
 
-      <ServiceProcessAccordion
+      <ServiceProcessCarousel
         title="Our Detailed Process"
-        subtitle="Click on each step to learn more about our professional engine bay detailing process."
-        process={process}
-        bg="bg-gray-50"
+        subtitle="Experience our comprehensive 5-step process designed to safely restore your engine bay"
+        steps={process}
+        bg="bg-gradient-to-br from-gray-50 to-gray-100"
       />
 
       <ServiceCTA

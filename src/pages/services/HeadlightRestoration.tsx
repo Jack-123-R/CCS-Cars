@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Eye, DollarSign, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ServiceHero, ServiceIncludedList, ServiceProcessAccordion, ServiceCTA } from "@/components/services/exports";
+import { ServiceHero, ServiceIncludedList, ServiceProcessCarousel, ServiceCTA } from "@/components/services/exports";
 import { useState } from 'react';
 
 // Data
@@ -24,31 +24,31 @@ const process = [
     step: 1,
     title: "Assessment and Preparation",
     description: "Thorough inspection of headlight condition including checking for deep scratches, yellowing severity, and structural integrity. We remove the headlights if necessary and prepare the work area.",
-    details: "Our technicians use specialized lighting to identify all problem areas and determine the best restoration approach for your specific headlights."
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 2,
     title: "Initial Cleaning and Masking",
     description: "Complete cleaning of the headlight surface and careful masking of surrounding areas to protect your vehicle's paint and trim.",
-    details: "We use automotive-grade masking tape and protective film to ensure no damage occurs to adjacent surfaces during the restoration process."
+    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 3,
     title: "Progressive Wet Sanding",
     description: "Multi-stage wet sanding process starting with coarser grits to remove heavy oxidation, progressing to finer grits for smooth finish.",
-    details: "We typically start with 400-grit sandpaper for heavy oxidation and progress through 800, 1000, and 1500-grit for optimal results."
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 4,
     title: "Polishing and Clarity Restoration",
     description: "Professional polishing using specialized compounds to restore crystal-clear transparency and remove all sanding marks.",
-    details: "Multiple polishing stages with different compound grits ensure complete clarity restoration and preparation for protective coating."
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 5,
     title: "UV Protection Application",
     description: "Application of professional-grade UV protective coating to prevent future yellowing and maintain long-lasting clarity.",
-    details: "Our UV coating provides up to 2 years of protection against oxidation and yellowing, significantly extending the life of your restoration."
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -80,11 +80,11 @@ export default function HeadlightRestoration() {
         bg="bg-white"
       />
 
-      <ServiceProcessAccordion
+      <ServiceProcessCarousel
         title="Our Detailed Process"
-        subtitle="Click on each step to learn more about our professional restoration process."
-        process={process}
-        bg="bg-gray-50"
+        subtitle="Experience our comprehensive 5-step process designed to restore crystal-clear headlights"
+        steps={process}
+        bg="bg-gradient-to-br from-gray-50 to-gray-100"
       />
 
       <ServiceCTA
