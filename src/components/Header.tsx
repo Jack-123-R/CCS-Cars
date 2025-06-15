@@ -73,7 +73,7 @@ const Header = () => {
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
                 <img 
-                  src="/lovable-uploads/ad86bc6e-f77f-4e28-a9cc-aa1f2d9a1d4d.png" 
+                  src="/lovable-uploads/28b808d4-646e-4452-9e8d-14baf9056940.png" 
                   alt="CCS Cars Hyderabad Logo" 
                   className="w-12 h-12 object-contain"
                 />

@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Instagram, Youtube } from 'lucide-react';
 
@@ -16,7 +15,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 rounded-full flex items-center justify-center">
                 <img 
-                  src="/lovable-uploads/ad86bc6e-f77f-4e28-a9cc-aa1f2d9a1d4d.png" 
+                  src="/lovable-uploads/28b808d4-646e-4452-9e8d-14baf9056940.png" 
                   alt="CCS Cars Hyderabad Logo" 
                   className="w-10 h-10 object-contain"
                 />
