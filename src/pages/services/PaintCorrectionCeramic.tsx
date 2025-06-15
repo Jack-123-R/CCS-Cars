@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Award, Clock, ArrowRight } from "lucide-react";
-import { ServiceHero, ServiceBenefits, ServiceIncludedList, ServiceCTA } from "@/components/services/exports";
+import { ServiceHero, ServiceBenefits, ServiceIncludedList, ServiceProcessCarousel, ServiceCTA } from "@/components/services/exports";
 import { PaintCorrectionCeramicProducts } from "./PaintCorrectionCeramicProducts";
 
 const included = [
@@ -43,39 +43,39 @@ const process = [
   {
     step: 1,
     title: "Paint Assessment & Measurement",
-    description:
-      "Thorough inspection using paint depth gauges to determine correction needs and establish safe polishing limits.",
+    description: "Thorough inspection using paint depth gauges to determine correction needs and establish safe polishing limits.",
+    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 2,
     title: "Washing & Decontamination",
-    description:
-      "Complete wash followed by clay bar treatment and chemical decontamination to remove embedded contaminants.",
+    description: "Complete wash followed by clay bar treatment and chemical decontamination to remove embedded contaminants.",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 3,
     title: "Multi-Stage Paint Correction",
-    description:
-      "Systematic removal of defects using professional polishing compounds and machines, progressing from cutting to finishing.",
+    description: "Systematic removal of defects using professional polishing compounds and machines, progressing from cutting to finishing.",
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 4,
     title: "Surface Preparation",
-    description:
-      "Final cleaning and preparation of paint surface to ensure optimal ceramic coating adhesion.",
+    description: "Final cleaning and preparation of paint surface to ensure optimal ceramic coating adhesion.",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 5,
     title: "Ceramic Coating Application",
-    description:
-      "Professional application of premium ceramic coating in controlled environment with proper curing procedures.",
+    description: "Professional application of premium ceramic coating in controlled environment with proper curing procedures.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
   },
   {
     step: 6,
     title: "Final Inspection & Documentation",
-    description:
-      "Quality assurance check with before/after photos and delivery of warranty documentation and care instructions.",
-  },
+    description: "Quality assurance check with before/after photos and delivery of warranty documentation and care instructions.",
+    image: "https://images.unsplash.com/photo-1555353540-38b469e74d6b?auto=format&fit=crop&w=800&q=80"
+  }
 ];
 
 export default function PaintCorrectionCeramic() {
@@ -129,33 +129,12 @@ export default function PaintCorrectionCeramic() {
         </div>
       </section>
 
-      {/* Professional Process section as cards (not using accordion since no details) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Professional Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every step is performed by certified professionals using the latest equipment and techniques.
-            </p>
-          </div>
-          
-          <div className="space-y-8">
-            {process.map((item) => (
-              <div key={item.step} className="bg-white border-0 shadow-lg rounded-lg p-8 flex items-start space-x-6">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                    {item.step}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceProcessCarousel
+        title="Our Professional Process"
+        subtitle="Every step is performed by certified professionals using the latest equipment and techniques."
+        steps={process}
+        bg="bg-gradient-to-br from-gray-50 to-gray-100"
+      />
 
       <PaintCorrectionCeramicProducts />
 
