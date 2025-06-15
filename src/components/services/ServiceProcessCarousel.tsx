@@ -65,7 +65,7 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
   }, [steps.length, isInView]);
 
   return (
-    <section ref={sectionRef} className={`py-20 ${bg} relative`} style={{ minHeight: '250vh' }}>
+    <section ref={sectionRef} className={`py-20 ${bg}`} style={{ minHeight: '250vh' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header - Increased top spacing */}
         <div className="text-center mb-20 sticky top-24 z-10 bg-gradient-to-b from-gray-50 to-transparent py-6">
@@ -122,8 +122,8 @@ export function ServiceProcessCarousel({ title, subtitle, steps, bg = "bg-white"
             </div>
           </div>
 
-          {/* Progress Indicators - Now positioned absolute within the section */}
-          <div className="absolute right-6 top-1/2 transform -translate-y-1/2 z-30">
+          {/* Progress Indicators - Moved to avoid overlap with other fixed elements */}
+          <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-30">
             <div className="flex flex-col space-y-3 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg">
               {steps.map((_, index) => (
                 <div
