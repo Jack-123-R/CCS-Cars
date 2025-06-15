@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -166,55 +165,71 @@ const InteriorDeepClean = () => {
         </div>
       </section>
 
-      {/* Interactive Process Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Interactive Process Section with New Layout */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Deep Cleaning Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Click on each step to learn more about our comprehensive interior cleaning process.
+              Experience our comprehensive 5-step process designed to transform your vehicle's interior
             </p>
           </div>
           
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {process.map((item) => (
-              <Card key={item.step} className="bg-white border-0 shadow-lg transition-all duration-300 hover:shadow-xl">
-                <CardContent className="p-0">
-                  <button
-                    onClick={() => toggleStep(item.step)}
-                    className="w-full p-8 text-left focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-6">
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 bg-red-900 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                            {item.step}
-                          </div>
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                          <p className="text-gray-600">{item.description}</p>
-                        </div>
+              <Card key={item.step} className="group bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-900 to-red-700 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        {item.step}
                       </div>
-                      <div className="flex-shrink-0">
-                        {activeStep === item.step ? (
-                          <ChevronUp className="h-6 w-6 text-red-600" />
-                        ) : (
-                          <ChevronDown className="h-6 w-6 text-gray-400" />
-                        )}
-                      </div>
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </button>
-                  {activeStep === item.step && (
-                    <div className="px-8 pb-8 pt-0">
-                      <div className="bg-red-50 rounded-lg p-6 ml-18">
-                        <p className="text-gray-700 leading-relaxed">{item.details}</p>
+                    
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-900 transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      {item.description}
+                    </p>
+                    
+                    <button
+                      onClick={() => toggleStep(item.step)}
+                      className="inline-flex items-center space-x-2 text-red-600 hover:text-red-800 font-semibold transition-colors duration-300 group-hover:text-red-700"
+                    >
+                      <span>Learn More</span>
+                      {activeStep === item.step ? (
+                        <ChevronUp className="h-4 w-4 transition-transform duration-300" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4 transition-transform duration-300" />
+                      )}
+                    </button>
+                    
+                    {activeStep === item.step && (
+                      <div className="mt-6 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border-l-4 border-red-500 animate-fade-in">
+                        <p className="text-gray-700 text-sm leading-relaxed">{item.details}</p>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Process Flow Indicator */}
+          <div className="mt-16 flex justify-center">
+            <div className="flex items-center space-x-4">
+              {process.map((_, index) => (
+                <div key={index} className="flex items-center">
+                  <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                  {index < process.length - 1 && (
+                    <div className="w-8 h-0.5 bg-gray-300 mx-2"></div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
