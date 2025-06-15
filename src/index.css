@@ -98,20 +98,118 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Skip link styling */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  /* Ensure proper focus indicators */
+  *:focus-visible {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+  }
+
+  /* Improve button focus indicators */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+  }
+
+  /* Ensure high contrast for text */
+  h1, h2, h3, h4, h5, h6 {
+    color: #111827;
+    font-weight: 700;
+  }
+
+  /* Ensure proper color contrast for links */
+  a {
+    color: #dc2626;
+    text-decoration-color: #dc2626;
+  }
+
+  a:hover {
+    color: #b91c1c;
+    text-decoration-color: #b91c1c;
+  }
+
+  /* Ensure proper spacing for touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve form accessibility */
+  input, select, textarea {
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    padding: 12px;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #dc2626;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  }
+
+  /* Ensure proper heading hierarchy */
+  h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 /* Custom button utilities for better visibility */
 @layer components {
   .btn-secondary-outline {
-    @apply border-2 border-current bg-transparent text-current hover:bg-current hover:text-white transition-all duration-300;
+    @apply border-2 border-current bg-transparent text-current hover:bg-current hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-current focus:ring-offset-2;
   }
   
   .btn-secondary-light {
-    @apply border-2 border-white/80 bg-white/10 text-white hover:bg-white hover:text-gray-900 transition-all duration-300;
+    @apply border-2 border-white/80 bg-white/10 text-white hover:bg-white hover:text-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
   }
   
   .btn-secondary-dark {
-    @apply border-2 border-gray-800 bg-gray-100 text-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300;
+    @apply border-2 border-gray-800 bg-gray-100 text-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2;
   }
 }
 
@@ -216,35 +314,58 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* 8px spacing system */
-.space-2 {
-  gap: 8px;
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.p-2 {
-  padding: 8px;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+  
+  button, a {
+    border: 2px solid currentColor !important;
+  }
 }
 
-.px-2 {
-  padding-left: 8px;
-  padding-right: 8px;
-}
+/* Ensure proper spacing for larger text */
+@media (min-width: 768px) {
+  .space-2 {
+    gap: 8px;
+  }
 
-.py-2 {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
+  .p-2 {
+    padding: 8px;
+  }
 
-.m-2 {
-  margin: 8px;
-}
+  .px-2 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 
-.mx-2 {
-  margin-left: 8px;
-  margin-right: 8px;
-}
+  .py-2 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 
-.my-2 {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  .m-2 {
+    margin: 8px;
+  }
+
+  .mx-2 {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .my-2 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }

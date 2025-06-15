@@ -24,10 +24,11 @@ const MobileDetailing = lazy(() => import("./pages/services/MobileDetailing"));
 
 // Lightweight fallback skeleton for lazy routes
 const PageSkeleton = () => (
-  <div className="min-h-[50vh] flex flex-col items-center justify-center">
-    <div className="w-32 h-32 bg-gray-200 rounded-full animate-pulse mb-4" />
-    <div className="h-8 w-64 bg-gray-100 rounded mb-2 animate-pulse" />
-    <div className="h-4 w-40 bg-gray-100 rounded animate-pulse" />
+  <div className="min-h-[50vh] flex flex-col items-center justify-center" role="status" aria-label="Loading page content">
+    <div className="w-32 h-32 bg-gray-200 rounded-full animate-pulse mb-4" aria-hidden="true" />
+    <div className="h-8 w-64 bg-gray-100 rounded mb-2 animate-pulse" aria-hidden="true" />
+    <div className="h-4 w-40 bg-gray-100 rounded animate-pulse" aria-hidden="true" />
+    <span className="sr-only">Loading...</span>
   </div>
 );
 
@@ -41,7 +42,7 @@ const App = () => (
       <BrowserRouter>
         <div className="min-h-screen flex flex-col">
           <Header />
-          <main className="flex-grow">
+          <main id="main-content" className="flex-grow" role="main">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about-us" element={<About />} />

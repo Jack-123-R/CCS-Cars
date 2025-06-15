@@ -19,7 +19,7 @@ const INSTAGRAM_REELS = [
   {
     id: 3,
     // https://www.instagram.com/reel/C4Pu_Z1vDL6/
-    thumbnail: "https://instagram.fhyd12-1.fna.fbcdn.net/v/t51.2885-15/428936589_717818130191177_7357585736972857677_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=bGHXgk5TBo8Q7kNvgFGluwe&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYDKaaW8e8hO20rPi7obwMxKXSvJj_mJKZ8tjDO0l58G_w&oe=666A888C&_nc_sid=10d13b",
+    thumbnail: "https://instagram.fhyd12-1.fna.fbcdn.net/v/t51.2885-15/428936589_717818130191177_7357585736972857677_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.fhyd12-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=bGHXgk5TBo8Q7kNvgFGluwe&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYDKaaW8e8hO20rPi7obwMxKXSvJKZ8tjDO0l58G_w&oe=666A888C&_nc_sid=10d13b",
     instagramUrl: "https://www.instagram.com/reel/C4Pu_Z1vDL6/"
   },
   {
@@ -32,41 +32,42 @@ const INSTAGRAM_REELS = [
 
 const InstagramSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" aria-labelledby="instagram-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="instagram-heading" className="text-4xl font-bold text-gray-900 mb-4">
             Watch Our Instagram Reels
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Get an inside look at our detailing process, amazing transformations, and behind-the-scenes content. 
             Follow us @ccshyderabad for daily automotive inspiration and tips.
           </p>
-          <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
+          <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
             <a
               href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2"
+              aria-label="Follow CCS Cars Hyderabad on Instagram"
             >
-              <Instagram className="h-5 w-5" />
+              <Instagram className="h-5 w-5" aria-hidden="true" />
               <span>Follow @ccshyderabad</span>
             </a>
           </Button>
         </div>
         
         {/* Responsive Reels grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-          {INSTAGRAM_REELS.map((reel) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" role="region" aria-label="Instagram reels gallery">
+          {INSTAGRAM_REELS.map((reel, index) => (
             <div
               key={reel.id}
               className="aspect-[9/16] w-full rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center"
             >
-              {/* style for child: make sure ReelPlayer fills container */}
               <div className="w-full h-full">
                 <ReelPlayer
                   thumbnail={reel.thumbnail}
                   instagramUrl={reel.instagramUrl}
+                  aria-label={`Instagram reel ${index + 1} - Car detailing showcase`}
                 />
               </div>
             </div>
@@ -77,15 +78,31 @@ const InstagramSection = () => {
         <div className="text-center">
           <p className="text-gray-600 mb-4">Want to see more transformations and behind-the-scenes content?</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600">
-              <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
-                <Instagram className="h-4 w-4" />
+            <Button asChild className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+              <a 
+                href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center space-x-2"
+                aria-label="Follow CCS Cars Hyderabad for more content"
+              >
+                <Instagram className="h-4 w-4" aria-hidden="true" />
                 <span>Follow for More</span>
               </a>
             </Button>
-            <Button asChild variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
-              <a href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
-                <span className="inline-flex"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+            <Button asChild variant="outline" className="border-red-600 text-red-600 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+              <a 
+                href="https://www.instagram.com/ccshyderabad?igsh=MXV3Ym90cXRkOXVzbQ%3D%3D" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center space-x-2"
+                aria-label="View all Instagram reels"
+              >
+                <span className="inline-flex" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                </span>
                 <span>View All Reels</span>
               </a>
             </Button>
