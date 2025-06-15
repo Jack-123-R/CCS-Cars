@@ -1,12 +1,11 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Clock, IndianRupee, Shield, ArrowRight, Star, ChevronDown, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
+import { CheckCircle, Clock, IndianRupee, Shield, ArrowRight, Star } from 'lucide-react';
+import { ServiceProcessAccordion, ProcessStep } from '@/components/services/ServiceProcessAccordion';
 
 const InteriorDeepClean = () => {
-  const [activeStep, setActiveStep] = useState<number | null>(null);
-
   const included = [
     "Complete vacuum of all surfaces including seats, carpets, and crevices",
     "Steam cleaning of fabric seats and upholstery",
@@ -20,7 +19,7 @@ const InteriorDeepClean = () => {
     "Interior glass cleaning for crystal clarity"
   ];
 
-  const process = [
+  const process: ProcessStep[] = [
     {
       step: 1,
       title: "Assessment and Preparation",
@@ -99,10 +98,6 @@ const InteriorDeepClean = () => {
     }
   ];
 
-  const toggleStep = (stepNumber: number) => {
-    setActiveStep(activeStep === stepNumber ? null : stepNumber);
-  };
-
   return (
     <div className="min-h-screen">
       {/* Service Hero */}
@@ -165,74 +160,13 @@ const InteriorDeepClean = () => {
         </div>
       </section>
 
-      {/* Interactive Process Section with New Layout */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Deep Cleaning Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience our comprehensive 5-step process designed to transform your vehicle's interior
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            {process.map((item) => (
-              <Card key={item.step} className="group bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                <CardContent className="p-8">
-                  <div className="text-center">
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-red-900 to-red-700 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        {item.step}
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-900 transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {item.description}
-                    </p>
-                    
-                    <button
-                      onClick={() => toggleStep(item.step)}
-                      className="inline-flex items-center space-x-2 text-red-600 hover:text-red-800 font-semibold transition-colors duration-300 group-hover:text-red-700"
-                    >
-                      <span>Learn More</span>
-                      {activeStep === item.step ? (
-                        <ChevronUp className="h-4 w-4 transition-transform duration-300" />
-                      ) : (
-                        <ChevronDown className="h-4 w-4 transition-transform duration-300" />
-                      )}
-                    </button>
-                    
-                    {activeStep === item.step && (
-                      <div className="mt-6 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border-l-4 border-red-500 animate-fade-in">
-                        <p className="text-gray-700 text-sm leading-relaxed">{item.details}</p>
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          {/* Process Flow Indicator */}
-          <div className="mt-16 flex justify-center">
-            <div className="flex items-center space-x-4">
-              {process.map((_, index) => (
-                <div key={index} className="flex items-center">
-                  <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                  {index < process.length - 1 && (
-                    <div className="w-8 h-0.5 bg-gray-300 mx-2"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Process Section using ServiceProcessAccordion */}
+      <ServiceProcessAccordion
+        title="Our Deep Cleaning Process"
+        subtitle="Experience our comprehensive 5-step process designed to transform your vehicle's interior"
+        process={process}
+        bg="bg-gradient-to-br from-gray-50 to-gray-100"
+      />
 
       {/* Before & After Gallery */}
       <section className="py-20 bg-white">
