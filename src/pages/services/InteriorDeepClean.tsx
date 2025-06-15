@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, IndianRupee, Shield, ArrowRight, Star } from 'lucide-react';
-import { ServiceProcessAccordion, ProcessStep } from '@/components/services/ServiceProcessAccordion';
+import { HorizontalProcessTimeline, TimelineStep } from '@/components/services/HorizontalProcessTimeline';
 
 const InteriorDeepClean = () => {
   const included = [
@@ -18,41 +18,31 @@ const InteriorDeepClean = () => {
     "Interior glass cleaning for crystal clarity"
   ];
 
-  const process: ProcessStep[] = [
+  const timelineSteps: TimelineStep[] = [
     {
       step: 1,
       title: "Assessment and Preparation",
-      description: "Thorough inspection of interior condition and removal of all personal items for complete access.",
-      details: "We evaluate the condition of all interior surfaces, identify problem areas, and remove all personal belongings to ensure complete access to every surface that needs attention.",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
+      description: "Thorough inspection of interior condition and removal of all personal items for complete access."
     },
     {
       step: 2,
       title: "Deep Vacuum Process",
-      description: "Complete vacuuming using professional equipment including crevice tools for hard-to-reach areas.",
-      details: "Using commercial-grade vacuum equipment with specialized attachments, we remove all loose debris from seats, carpets, floor mats, and hard-to-reach crevices between and under seats.",
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80"
+      description: "Complete vacuuming using professional equipment including crevice tools for hard-to-reach areas."
     },
     {
       step: 3,
       title: "Steam Cleaning",
-      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria and deep-set stains.",
-      details: "Professional steam cleaning equipment penetrates deep into fabric fibers, killing bacteria and allergens while lifting embedded dirt and stains that regular cleaning cannot reach.",
-      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=600&q=80"
+      description: "High-temperature steam cleaning of fabric surfaces to eliminate bacteria and deep-set stains."
     },
     {
       step: 4,
       title: "Leather Treatment",
-      description: "Application of premium conditioners to restore and protect leather surfaces.",
-      details: "Specialized leather cleaning products remove dirt and oils, followed by conditioning treatments that restore moisture and flexibility while providing UV protection against cracking and fading.",
-      image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=600&q=80"
+      description: "Application of premium conditioners to restore and protect leather surfaces."
     },
     {
       step: 5,
       title: "Final Inspection",
-      description: "Comprehensive quality check and customer walkthrough to ensure complete satisfaction.",
-      details: "Final inspection includes checking all cleaned surfaces, ensuring no areas were missed, and conducting a customer walkthrough to guarantee your complete satisfaction with our work.",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+      description: "Comprehensive quality check and customer walkthrough to ensure complete satisfaction."
     }
   ];
 
@@ -164,11 +154,11 @@ const InteriorDeepClean = () => {
         </div>
       </section>
 
-      {/* Process Section using ServiceProcessAccordion */}
-      <ServiceProcessAccordion
+      {/* Process Section using HorizontalProcessTimeline */}
+      <HorizontalProcessTimeline
         title="Our Deep Cleaning Process"
         subtitle="Experience our comprehensive 5-step process designed to transform your vehicle's interior"
-        process={process}
+        steps={timelineSteps}
         bg="bg-gradient-to-br from-gray-50 to-gray-100"
       />
 
